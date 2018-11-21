@@ -1,0 +1,25 @@
+.m-aside-menu .m-menu__nav > .m-menu__item > .m-menu__link .m-menu__ver-arrow
+{
+    width: 0px !important;
+}
+
+.button-add-custom
+{
+    background-color: #ca9408 !important;
+    border-color: #ca9408 !important;
+}
+
+.btn.m-btn--hover-accent:not(.btn-secondary):not(.btn-outline-light)
+{
+    background: #ca9408 !important;
+}
+
+.btn.m-btn--hover-accent:not(.btn-secondary):not(.btn-outline-light) i
+{
+    color: #fff !important;
+}
+
+.form-group select
+{
+    height: 50px !important;
+}
