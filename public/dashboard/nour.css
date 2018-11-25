@@ -23,3 +23,8 @@
 {
     height: 50px !important;
 }
+
+.form-control[readonly], .form-control
+{
+    border-color: #595a5abf;
+}

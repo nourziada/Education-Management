@@ -34,6 +34,12 @@
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+    <style>
+        .error
+        {
+            color: #ff5555 !important;
+        }
+    </style>
 </head>
 
 <!-- end::Head -->
@@ -57,13 +63,13 @@
                     </div>
 
                     @include('includes.errors')
-                    <form class="m-login__form m-form" action="{{ route('login') }}" method="POST">
+                    <form class="m-login__form m-form" action="{{ route('login') }}" method="POST" id="form-l">
                         {{ csrf_field() }}
                         <div class="form-group m-form__group">
-                            <input class="form-control m-input" type="text" placeholder="اسم المستخدم" name="user_name" autocomplete="off">
+                            <input class="form-control m-input" type="text" placeholder="اسم المستخدم" name="user_name" autocomplete="off" required>
                         </div>
                         <div class="form-group m-form__group">
-                            <input class="form-control m-input m-login__form-input--last" type="password" placeholder="كلمة المرور" name="password">
+                            <input class="form-control m-input m-login__form-input--last" type="password" placeholder="كلمة المرور" name="password" required>
                         </div>
                         <div class="row m-login__form-sub">
                             <div class="col m--align-left m-login__form-left">
@@ -86,7 +92,7 @@
                         <h3 class="m-login__title">تسجيل الاشتراك</h3>
                         <div class="m-login__desc">ادخل معلوماتك كاملة لإتمام عملية التسجيل:</div>
                     </div>
-                    <form class="m-login__form m-form" action="{{ route('register') }}" method="POST">
+                    <form class="m-login__form m-form" action="{{ route('register') }}" method="POST" id="form-r">
                         {{ csrf_field() }}
 
                         <div class="row">
@@ -170,7 +176,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group m-form__group">
-                                    <input class="form-control m-input" type="password" placeholder="كلمة المرور" name="password" required>
+                                    <input class="form-control m-input" type="password" placeholder="كلمة المرور" name="password" id="password" required>
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -281,6 +287,50 @@
     </script>
 @endif
 <!--end::Page Scripts -->
+
+
+{{-- Validation Code --}}
+<script src="{{ asset('web/js/jquery.validate.js') }}"></script>
+<script>
+    jQuery(function ($) {
+        $("#form-r").validate({
+            event: 'blur',
+            rules: {
+                user_name: {required: true},
+                email:{required: true},
+                password : {
+                    minlength : 6
+                },
+                password_confirmation : {
+                    minlength : 6,
+                    equalTo : "#password"
+                }
+
+            },
+            messages: {
+                user_name: "الرجاء ادخال العنوان",
+
+            }
+        });
+
+        $("#form-l").validate({
+            event: 'blur',
+            rules: {
+                user_name:{required: true},
+                password : {
+                    minlength : 6
+                },
+
+            },
+            messages: {
+
+            }
+        });
+    });
+
+
+
+</script>
 </body>
 
 <!-- end::Body -->

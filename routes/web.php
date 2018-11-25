@@ -65,6 +65,16 @@ Route::prefix('admin')->group(function() {
 
     /*
     |--------------------------------------------------------------------------
+    | Operational Planes
+    |--------------------------------------------------------------------------
+    */
+
+    Route::get('/operational-plans/details/{id}','Admin\OperationalPlanesController@getPlanDetails')->name('admin.operational.plans.details');
+    Route::get('/operational-plans/{type}','Admin\OperationalPlanesController@getPlansWithType')->name('admin.operational.plans.type');
+    Route::get('/operational-plans/action/accept/{id}','Admin\OperationalPlanesController@acceptPlan')->name('admin.operational.plans.accept');
+
+    /*
+    |--------------------------------------------------------------------------
     | Strategic Plans
     |--------------------------------------------------------------------------
     */
