@@ -24,6 +24,23 @@ Route::prefix('system-dashboard')->group(function() {
     | Operational Planes Routes
     |--------------------------------------------------------------------------
     */
+    Route::get('/get-risks-forms/{type}','User\RisksFormController@getFormsWithType')->name('dashboard.risks-forms.type');
+    Route::resource('/risks-forms','User\RisksFormController');
+
+    /*
+   |--------------------------------------------------------------------------
+   | Operational Planes Routes
+   |--------------------------------------------------------------------------
+   */
+    Route::get('/get-swat-forms/{type}','User\SwatController@getFormsWithType')->name('dashboard.swat.type');
+    Route::resource('/swat','User\SwatController');
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Operational Planes Routes
+    |--------------------------------------------------------------------------
+    */
     Route::get('/get-operational-plans/{type}','User\OperationalPlanes@getPlanesWithType')->name('dashboard.operational.type');
     Route::resource('/operational-plans','User\OperationalPlanes');
 
@@ -62,6 +79,28 @@ Route::prefix('system-dashboard')->group(function() {
 });
 
 Route::prefix('admin')->group(function() {
+
+    /*
+    |--------------------------------------------------------------------------
+    | Risks Forms
+    |--------------------------------------------------------------------------
+    */
+
+    Route::get('/risks-forms/details/{id}','Admin\RisksFormsController@getFormDetails')->name('admin.risks.details');
+    Route::get('/risks-forms/{type}','Admin\RisksFormsController@getFormsWithType')->name('admin.risks.type');
+    Route::get('/risks-forms/action/accept/{id}','Admin\RisksFormsController@acceptForm')->name('admin.risks.accept');
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Swat Forms
+    |--------------------------------------------------------------------------
+    */
+
+    Route::get('/swat-forms/details/{id}','Admin\SwatController@getFormDetails')->name('admin.swat.details');
+    Route::get('/swat-forms/{type}','Admin\SwatController@getFormsWithType')->name('admin.swat.type');
+    Route::get('/swat-forms/action/accept/{id}','Admin\SwatController@acceptForm')->name('admin.swat.accept');
+
 
     /*
     |--------------------------------------------------------------------------

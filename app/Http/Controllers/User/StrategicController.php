@@ -183,6 +183,7 @@ class StrategicController extends Controller
         $data->management = Auth::user()->management;
         $data->department = Auth::user()->department;
         $data->status = 2;
+        $data->is_confirmed = 0;
         $data->save();
 
         Session::flash('success' , 'تمت تعديل بيانات الخطة الاستراتيجية بنجاح ، وبإنتظار تأكيد مدير الموقع');
@@ -199,6 +200,7 @@ class StrategicController extends Controller
     {
         $data = Strategic::find($id);
         $data->status = 3;
+        $data->is_confirmed = 0;
         $data->is_deleted = 1;
         $data->save();
 

@@ -56,7 +56,7 @@
 															الخطط الإستراتيجية المضافة
 														</span>
                                                 <span class="m-widget17__desc">
-															15 خطة استراتيجية
+															{{ $strategic_plans->count() }} خطة استراتيجية
 														</span>
                                             </div>
                                             <div class="m-widget17__item" style="box-shadow: 1px 1px 1px 1px #086855;">
@@ -67,7 +67,7 @@
 															الخطط التشغيلية المضافة
 														</span>
                                                 <span class="m-widget17__desc">
-															72 خطة تشغيلية
+															{{ $operational_plans->count() }} خطة تشغيلية
 														</span>
                                             </div>
                                         </div>
@@ -80,7 +80,7 @@
 															نماذج SWAT
 														</span>
                                                 <span class="m-widget17__desc">
-															72 نموذج
+															{{ $swat_plans->count() }} نموذج
 														</span>
                                             </div>
                                             <div class="m-widget17__item " style="box-shadow: 1px 1px 1px 1px #086855;">
@@ -91,7 +91,7 @@
 															نماذج إدارة المخاطر
 														</span>
                                                 <span class="m-widget17__desc">
-															72 نموذج ادارة مخاطر
+															{{ $risks_forms->count() }} نموذج ادارة مخاطر
 														</span>
                                             </div>
                                         </div>

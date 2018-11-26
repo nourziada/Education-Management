@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers\User;
 
+use App\OperationalPlan;
+use App\RiskForm;
+use App\Strategic;
+use App\Swat;
 use Illuminate\Http\Request;
 use App\User;
 use App\Http\Controllers\Controller;
@@ -13,6 +17,7 @@ class HomeController extends Controller
 {
     public function __construct()
     {
+        $this->middleware('auth');
         $this->middleware('isUserActive',['except' => ['index','showPassword','changePassword']]);
     }
 
@@ -56,6 +61,12 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('user.index');
+        $user = Auth::user();
+        $strategic_plans = Strategic::where('user_id',$user->id)->get();
+        $operational_plans = OperationalPlan::where('user_id',$user->id)->get();
+        $swat_plans = Swat::where('user_id',$user->id)->get();
+        $risks_forms = RiskForm::where('user_id',$user->id)->get();
+        
+        return view('user.index',compact('strategic_plans','operational_plans','swat_plans','risks_forms'));
     }
 }

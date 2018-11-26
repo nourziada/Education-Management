@@ -232,6 +232,9 @@ class OperationalPlanes extends Controller
         $data->strategic_number = $request->strategic_number;
         $data->detailed_number = $request->detailed_number;
 
+        $data->status = 2;
+        $data->is_confirmed = 0;
+
         $data->save();
 
         Session::flash('success' , 'تمت تعديل بيانات الخطة التشغيلية بنجاح ، وبإنتظار تأكيد مدير الموقع');
@@ -248,6 +251,7 @@ class OperationalPlanes extends Controller
     {
         $data = OperationalPlan::find($id);
         $data->status = 3;
+        $data->is_confirmed = 0;
         $data->is_deleted = 1;
         $data->save();
 
