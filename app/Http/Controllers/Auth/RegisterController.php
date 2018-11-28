@@ -68,12 +68,30 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        if(isset($data['management']))
+        {
+            $management = $data['management'];
+        }else
+        {
+            $management = null;
+        }
+
+        if(isset($data['department']))
+        {
+            $department = $data['department'];
+        }else
+        {
+            $department = null;
+        }
+
+
         return User::create([
             'name' => $data['name'],
             'account_type' => $data['account_type'],
             'user_name' => $data['user_name'],
-            'management' => $data['management'],
-            'department' => $data['department'],
+            'management' => $management,
+            'department' => $department,
             'sefa' => $data['sefa'],
             'mobile' => $data['mobile'],
             'phone' => $data['phone'],

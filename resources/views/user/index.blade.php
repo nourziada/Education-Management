@@ -47,7 +47,11 @@
                                 <div class="m-widget17">
 
                                     <div class="m-widget17__stats">
+
+                                        @if(Auth::user()->account_type == 1)
                                         <div class="m-widget17__items m-widget17__items-col1">
+
+
                                             <div class="m-widget17__item" style="box-shadow: 1px 1px 1px 1px #086855;">
 														<span class="m-widget17__icon">
 															<i class="flaticon-doc m--font-brand"></i>
@@ -59,19 +63,39 @@
 															{{ $strategic_plans->count() }} خطة استراتيجية
 														</span>
                                             </div>
-                                            <div class="m-widget17__item" style="box-shadow: 1px 1px 1px 1px #086855;">
-														<span class="m-widget17__icon">
-															<i class="flaticon-paper-plane m--font-info"></i>
-														</span>
-                                                <span class="m-widget17__subtitle">
-															الخطط التشغيلية المضافة
-														</span>
-                                                <span class="m-widget17__desc">
-															{{ $operational_plans->count() }} خطة تشغيلية
-														</span>
-                                            </div>
+
+                                                    <div class="m-widget17__item " style="box-shadow: 1px 1px 1px 1px #086855;">
+                                                                <span class="m-widget17__icon">
+                                                                    <i class="flaticon-time m--font-danger"></i>
+                                                                </span>
+                                                        <span class="m-widget17__subtitle">
+                                                                    نماذج إدارة المخاطر
+                                                                </span>
+                                                        <span class="m-widget17__desc">
+                                                                    {{ $risks_forms->count() }} نموذج ادارة مخاطر
+                                                                </span>
+                                                    </div>
+
+
                                         </div>
+                                        @endif
+
+                                        @if(Auth::user()->account_type == 1 || Auth::user()->account_type == 3)
                                         <div class="m-widget17__items m-widget17__items-col2">
+
+
+                                                <div class="m-widget17__item" style="box-shadow: 1px 1px 1px 1px #086855;">
+                                                                <span class="m-widget17__icon">
+                                                                    <i class="flaticon-paper-plane m--font-info"></i>
+                                                                </span>
+                                                    <span class="m-widget17__subtitle">
+                                                                    الخطط التشغيلية المضافة
+                                                                </span>
+                                                    <span class="m-widget17__desc">
+                                                                    {{ $operational_plans->count() }} خطة تشغيلية
+                                                                </span>
+                                                </div>
+
                                             <div class="m-widget17__item" style="box-shadow: 1px 1px 1px 1px #086855;">
 														<span class="m-widget17__icon">
 															<i class="flaticon-pie-chart m--font-success"></i>
@@ -83,18 +107,26 @@
 															{{ $swat_plans->count() }} نموذج
 														</span>
                                             </div>
-                                            <div class="m-widget17__item " style="box-shadow: 1px 1px 1px 1px #086855;">
-														<span class="m-widget17__icon">
-															<i class="flaticon-time m--font-danger"></i>
-														</span>
-                                                <span class="m-widget17__subtitle">
-															نماذج إدارة المخاطر
-														</span>
-                                                <span class="m-widget17__desc">
-															{{ $risks_forms->count() }} نموذج ادارة مخاطر
-														</span>
-                                            </div>
+
+
                                         </div>
+                                        @endif
+
+                                        @if(Auth::user()->account_type == 2)
+                                            <div class="m-widget17__items m-widget17__items-col2">
+                                                <div class="m-widget17__item" style="box-shadow: 1px 1px 1px 1px #086855;">
+                                                            <span class="m-widget17__icon">
+                                                                <i class="flaticon-doc m--font-brand"></i>
+                                                            </span>
+                                                    <span class="m-widget17__subtitle">
+                                                                نماذج البحوث التربوية المضافة
+                                                            </span>
+                                                    <span class="m-widget17__desc">
+                                                                {{ $educational_research->count() }} نموذج تربوي
+                                                            </span>
+                                                </div>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

@@ -21,6 +21,15 @@ Route::prefix('system-dashboard')->group(function() {
 
     /*
     |--------------------------------------------------------------------------
+    | Educational Research Forms Routes نماذج البحوث التربوية
+    |--------------------------------------------------------------------------
+    */
+    Route::get('/get-educational-research/{type}','User\EducationalResearchController@getFormsWithType')->name('dashboard.educational-research.type');
+    Route::resource('/educational-research','User\EducationalResearchController');
+
+
+    /*
+    |--------------------------------------------------------------------------
     | Operational Planes Routes
     |--------------------------------------------------------------------------
     */
@@ -79,6 +88,17 @@ Route::prefix('system-dashboard')->group(function() {
 });
 
 Route::prefix('admin')->group(function() {
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Educational Research Forms
+    |--------------------------------------------------------------------------
+    */
+
+    Route::get('/educational-research-forms/details/{id}','Admin\EducationalResearchController@getFormDetails')->name('admin.educational-research.details');
+    Route::get('/educational-research-forms/{type}','Admin\EducationalResearchController@getFormsWithType')->name('admin.educational-research.type');
+    Route::get('/educational-research-forms/action/accept/{id}','Admin\EducationalResearchController@acceptForm')->name('admin.educational-research.accept');
 
     /*
     |--------------------------------------------------------------------------

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\EducationalResearch;
 use App\OperationalPlan;
 use App\RiskForm;
 use App\Strategic;
@@ -66,7 +67,8 @@ class HomeController extends Controller
         $operational_plans = OperationalPlan::where('user_id',$user->id)->get();
         $swat_plans = Swat::where('user_id',$user->id)->get();
         $risks_forms = RiskForm::where('user_id',$user->id)->get();
+        $educational_research = EducationalResearch::where('user_id',$user->id)->get();
         
-        return view('user.index',compact('strategic_plans','operational_plans','swat_plans','risks_forms'));
+        return view('user.index',compact('strategic_plans','operational_plans','swat_plans','risks_forms','educational_research'));
     }
 }
