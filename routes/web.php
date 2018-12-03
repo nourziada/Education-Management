@@ -12,9 +12,20 @@
 */
 
 Route::get('/','Web\HomeController@index')->name('index');
+Route::get('/word','Web\HomeController@getWordDocument')->name('word');
+Route::get('/pdf','Web\HomeController@getPDF')->name('pdf');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+/*
+|--------------------------------------------------------------------------
+| Reporting Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/operational-plan-report/{id}}','Web\HomeController@getOperationalPlanReport')->name('report.operational.plan');
+Route::get('/strategic-plan-report/{id}}','Web\HomeController@getStrategicPlanReport')->name('report.strategic.plan');
 
 
 Route::prefix('system-dashboard')->group(function() {
@@ -137,7 +148,7 @@ Route::prefix('admin')->group(function() {
     | Strategic Plans
     |--------------------------------------------------------------------------
     */
-
+    Route::get('/strategic-plans/details/{id}','Admin\StrategicPlansController@getPlanDetails')->name('admin.strategic.plans.details');
     Route::get('/strategic-plans/{type}','Admin\StrategicPlansController@getPlansWithType')->name('admin.strategic.plans.type');
     Route::get('/strategic-plans/action/accept/{id}','Admin\StrategicPlansController@acceptPlan')->name('admin.strategic.plans.accept');
 

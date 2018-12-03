@@ -6,6 +6,7 @@ use App\Initiative;
 use App\Measurement;
 use App\Strategic;
 use App\StrategicGoal;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
@@ -19,19 +20,6 @@ class StrategicController extends Controller
     {
         $this->middleware('isManagment');
     }
-
-    public function pdfview(Request $request)
-    {
-        $projects = Strategic::where('is_confirmed',1)->where('is_deleted',0)->orderBy('created_at','desc')->get();
-        $type = 1;
-        view()->share(['projects',$projects,'type' ,$type]);
-
-        $pdf = PDF::loadView('user.strategic.index',compact('type','projects'));
-        // download pdf
-        return $pdf->download('pdfview.pdf');
-
-    }
-
 
 
     /*
@@ -130,7 +118,9 @@ class StrategicController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Strategic::findOrFail($id);
+        $user = User::find($data->user_id);
+        return view('user.strategic.details',compact('data','user'));
     }
 
     /**

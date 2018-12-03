@@ -62,6 +62,7 @@
                                         <th>المستهدفون</th>
                                         <th>الحالة</th>
                                         <th>الإجراءات</th>
+                                        <th>التفاصيل</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -323,6 +324,14 @@
                                                     </div>
                                                 </div>
                                             </td>
+
+
+                                            <td>
+                                                <a href="{{ route('admin.strategic.plans.details',$project->id) }}" class="m-portlet__nav-link btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill" title="View">
+                                                    <i class="far fa-eye"></i>
+                                                </a>
+                                            </td>
+
 
                                         </tr>
 

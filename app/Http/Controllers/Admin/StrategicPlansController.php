@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Strategic;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Session;
@@ -15,6 +16,16 @@ class StrategicPlansController extends Controller
         $this->middleware('isAdmin');
     }
 
+    /*
+     * Get Plans Details
+     */
+
+    public function getPlanDetails($id)
+    {
+        $data = Strategic::findOrFail($id);
+        $user = User::find($data->user_id);
+        return view('admin.strategic-plans.details',compact('data','user'));
+    }
 
     /*
      * Accept Plan that is_confirm == 0

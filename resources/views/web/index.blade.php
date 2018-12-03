@@ -86,8 +86,12 @@
                                         </li>
 
                                         @auth
-                                            <li><a class="button button-border x-small" href="{{ route('dashboard.index') }}">لوحة التحكم</a> </li>
 
+                                            @if(Auth::user()->admin == 1)
+                                                <li><a class="button button-border x-small" href="{{ route('admin.index') }}">لوحة التحكم</a> </li>
+                                            @elseif(Auth::user()->admin == 2)
+                                                <li><a class="button button-border x-small" href="{{ route('dashboard.index') }}">لوحة التحكم</a> </li>
+                                            @endif
                                         @else
                                             <li><a class="button button-border x-small" href="{{ route('login') }}">تسجيل الاشتراك</a> </li>
                                             <li><a class="button button-border x-small" href="{{ route('login') }}">تسجيل الدخول </a> </li>
