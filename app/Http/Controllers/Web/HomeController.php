@@ -2,20 +2,177 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\EducationalResearch;
 use App\Initiative;
 use App\Measurement;
 use App\MinisterialInitiatives;
 use App\OperationalPlan;
+use App\RiskForm;
 use App\Strategic;
 use App\StrategicGoal;
 use App\StrategicInitiatives;
 use App\Http\Controllers\Controller;
+use App\Swat;
+use App\User;
 use Illuminate\Support\Facades\Response;
 
 class HomeController extends Controller
 {
 
+    /*
+     * Research to Word
+     */
 
+    public function getResearchReport($id)
+    {
+        // get the SWAT Data
+        $data = EducationalResearch::findOrFail($id);
+
+        // Get the Word Document
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $document = $phpWord->loadTemplate('doc/research.docx');
+
+        $document->setValue('name', ($data->name) );
+        $document->setValue('id_number', ($data->id_number) );
+        $document->setValue('work', ($data->work) );
+        $document->setValue('mobile', ($data->mobile) );
+        $document->setValue('email', ($data->email) );
+        $document->setValue('search_title', ($data->search_title) );
+        $document->setValue('qualification', ($data->qualification) );
+        $document->setValue('uni', ($data->uni) );
+        $document->setValue('college', ($data->college) );
+        $document->setValue('specialization', ($data->specialization) );
+        $document->setValue('search_goal', ($data->search_goal) );
+        $document->setValue('chapter_date', ($data->chapter_date) );
+        $document->setValue('targets', ($data->targets) );
+        $document->setValue('authority', ($data->authority) );
+        $document->setValue('target', ($data->target) );
+        $document->setValue('authority_address', ($data->authority_address) );
+        $document->setValue('search_tool', ($data->search_tool) );
+
+        $name = 'Document' . time() . '.docx';
+        $document->saveAs(public_path() . "/research_reports/" . $name);
+        $file = public_path(). "/research_reports/{$name}";
+
+        $headers = array(
+            //'Content-Type: application/msword',
+            'Content-Type: vnd.openxmlformats-officedocument.wordprocessingml.document'
+        );
+
+        $response = Response::download($file, $name, $headers);
+        return $response;
+
+    }
+    /*
+     * Risks Word
+     */
+
+    public function getRisksReport($id)
+    {
+        // get the SWAT Data
+        $data = RiskForm::findOrFail($id);
+        $user = User::find($data->user_id);
+
+        // Get the Word Document
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $document = $phpWord->loadTemplate('doc/risks.docx');
+
+        if($user != null)
+        {
+            $management = $this->getManagement($user);
+            $department = $this->getDepartment($user);
+        }else
+        {
+            $management = "";
+            $department = "";
+        }
+
+
+        $document->setValue('management', ($management) );
+        $document->setValue('department', ($department) );
+        $document->setValue('type', ($data->type) );
+        $document->setValue('name', ($data->name) );
+        $document->setValue('description', ($data->description) );
+        $document->setValue('level', ($data->level) );
+        $document->setValue('protection', ($data->protection) );
+        $document->setValue('effect', ($data->effect) );
+        $document->setValue('responsible', ($data->responsible) );
+        $document->setValue('treatment', ($data->treatment) );
+        $document->setValue('end', ($data->end) );
+
+        $name = 'Document' . time() . '.docx';
+        $document->saveAs(public_path() . "/risks_reports/" . $name);
+        $file = public_path(). "/risks_reports/{$name}";
+
+        $headers = array(
+            //'Content-Type: application/msword',
+            'Content-Type: vnd.openxmlformats-officedocument.wordprocessingml.document'
+        );
+
+        $response = Response::download($file, $name, $headers);
+        return $response;
+    }
+
+    /*
+     * SWAT Word
+     */
+
+    public function getSwatReport($id)
+    {
+        // get the SWAT Data
+        $data = Swat::findOrFail($id);
+        $user = User::find($data->user_id);
+
+
+
+        // Get the Word Document
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $document = $phpWord->loadTemplate('doc/swat.docx');
+
+        if($user != null)
+        {
+            $management = $this->getManagement($user);
+            $department = $this->getDepartment($user);
+        }else
+        {
+            $management = "";
+            $department = "";
+        }
+
+
+        $plan_title = OperationalPlan::find($data->operational_plan_id);
+        if($plan_title != null)
+        {
+            $plan_title =  $plan_title->plane_title;
+        }else
+        {
+            $plan_title = "";
+        }
+
+
+
+        $document->setValue('management', ($management) );
+        $document->setValue('department', ($department) );
+        $document->setValue('plan_title', ($plan_title) );
+        $document->setValue('strong', ($data->strong) );
+        $document->setValue('week', ($data->week) );
+        $document->setValue('opportunities', ($data->opportunities) );
+        $document->setValue('threats', ($data->threats) );
+
+
+        $name = 'Document' . time() . '.docx';
+        $document->saveAs(public_path() . "/swat_reports/" . $name);
+        $file = public_path(). "/swat_reports/{$name}";
+
+        $headers = array(
+            //'Content-Type: application/msword',
+            'Content-Type: vnd.openxmlformats-officedocument.wordprocessingml.document'
+        );
+
+        $response = Response::download($file, $name, $headers);
+        return $response;
+
+    }
     /*
      * Strategic Plans Word
      */

@@ -37,6 +37,19 @@
 
                                 <div class="m-timeline-3 delegate-information">
                                     <div class="m-timeline-3__items">
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <a href="{{ route('report.swat.plan',$data->id) }}" class="btn btn-primary btn-block" style="color: #fff;">تصدير البيانات الى ملف Word </a>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <a href="#" class="btn btn-outline-warning btn-block" id="print-window">طباعة التقرير</a>
+                                            </div>
+                                        </div>
+
+                                        <br>
+
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="m-timeline-3__item m-timeline-3__item--info">
@@ -160,6 +173,15 @@
 
         </div>
     </div>
+
+
+    @push('js')
+        <script>
+            $('#print-window').click(function() {
+                window.print();
+            });
+        </script>
+    @endpush
 
 
 @stop

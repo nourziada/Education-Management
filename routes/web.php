@@ -26,6 +26,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/operational-plan-report/{id}}','Web\HomeController@getOperationalPlanReport')->name('report.operational.plan');
 Route::get('/strategic-plan-report/{id}}','Web\HomeController@getStrategicPlanReport')->name('report.strategic.plan');
+Route::get('/swat-report/{id}}','Web\HomeController@getSwatReport')->name('report.swat.plan');
+Route::get('/risks-report/{id}}','Web\HomeController@getRisksReport')->name('report.risks.plan');
+Route::get('/research-report/{id}}','Web\HomeController@getResearchReport')->name('report.research.plan');
 
 
 Route::prefix('system-dashboard')->group(function() {
