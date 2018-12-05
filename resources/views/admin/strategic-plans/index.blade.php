@@ -314,10 +314,13 @@
                                                     </a>
                                                     <div class="dropdown-menu dropdown-menu-right">
 
-                                                        @if($project->is_confirmed == 0)
-                                                            <a class="dropdown-item" href="{{ route('admin.strategic.plans.accept',$project->id) }}">
-                                                                <i class="la la-check-circle"></i>الموافقة
-                                                            </a>
+                                                        @php $roles = \App\AdminRole::where('user_id',Auth::user()->id)->get(); @endphp
+                                                        @if($roles->contains('role_id', 3) || $user->email == 'admin@admin.com')
+                                                            @if($project->is_confirmed == 0)
+                                                                <a class="dropdown-item" href="{{ route('admin.strategic.plans.accept',$project->id) }}">
+                                                                    <i class="la la-check-circle"></i>الموافقة
+                                                                </a>
+                                                            @endif
                                                         @endif
 
 

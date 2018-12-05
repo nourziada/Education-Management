@@ -87,6 +87,10 @@ class RisksFormController extends Controller
         $data->responsible = $request->responsible;
         $data->treatment = $request->treatment;
         $data->end = $request->end;
+
+        $data->management = Auth::user()->management;
+        $data->department = Auth::user()->department;
+
         $data->save();
 
         Session::flash('success' , 'تمت اضافة النموذج بنجاح ، وبإنتظار تفعيل مدير الموقع');

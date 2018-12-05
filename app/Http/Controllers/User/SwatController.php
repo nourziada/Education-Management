@@ -80,6 +80,10 @@ class SwatController extends Controller
         $data->week = $request->week;
         $data->opportunities = $request->opportunities;
         $data->threats = $request->threats;
+
+        $data->management = Auth::user()->management;
+        $data->department = Auth::user()->department;
+
         $data->save();
 
         Session::flash('success' , 'تمت اضافة نموذج SWAT بنجاح ، وبإنتظار تفعيل مدير الموقع');

@@ -64,5 +64,8 @@ class Kernel extends HttpKernel
         'isUserActive' => \App\Http\Middleware\isUserActive::class,
         'isManagmentSchool' => \App\Http\Middleware\isManagmentSchool::class,
         'isEducationalResearch' => \App\Http\Middleware\isEducationalResearch::class,
+        'isUsersRole' => \App\Http\Middleware\isUsersRole::class,
+        'isResearchRole' => \App\Http\Middleware\isResearchRole::class,
+        'isRolesRole' => \App\Http\Middleware\isRolesRole::class,
     ];
 }

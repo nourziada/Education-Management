@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\AdminRole;
 use App\RiskForm;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Session;
+use Auth;
 
 
 class RisksFormsController extends Controller
@@ -50,24 +52,58 @@ class RisksFormsController extends Controller
 
     public function getFormsWithType($type)
     {
+        //Check the Admin Role
+        $roles = AdminRole::where('user_id',Auth::user()->id)->get();
+
+
         // Confirmed , and Not Deleted
         if($type == 1)
         {
-            $projects = RiskForm::where('is_confirmed',1)->where('is_deleted',0)->orderBy('created_at','desc')->get();
+
+            if($roles->contains('role_id', 1) || Auth::user()->email == 'admin@admin.com')
+            {
+                $projects = RiskForm::where('is_confirmed',1)->where('is_deleted',0)->orderBy('created_at','desc')->get();
+
+            }elseif($roles->contains('role_id', 2) || Auth::user()->email == 'admin@admin.com')
+            {
+                $managment = AdminRole::where('user_id',Auth::user()->id)->where('role_id',2)->get()->first();
+                $management_id = $managment->management_id;
+                $projects = RiskForm::where('management',$management_id)->where('is_confirmed',1)->where('is_deleted',0)->orderBy('created_at','desc')->get();
+            }
         }
 
 
         // Not Confirmed
         if($type == 2)
         {
-            $projects = RiskForm::where('is_confirmed',0)->orderBy('created_at','desc')->get();
+
+            if($roles->contains('role_id', 1) || Auth::user()->email == 'admin@admin.com')
+            {
+                $projects = RiskForm::where('is_confirmed',0)->orderBy('created_at','desc')->get();
+
+            }elseif($roles->contains('role_id', 2) || Auth::user()->email == 'admin@admin.com')
+            {
+                $managment = AdminRole::where('user_id',Auth::user()->id)->where('role_id',2)->get()->first();
+                $management_id = $managment->management_id;
+                $projects = RiskForm::where('management',$management_id)->where('is_confirmed',0)->orderBy('created_at','desc')->get();
+            }
         }
 
 
         // Confirmed , Deleted
         if($type == 3)
         {
-            $projects = RiskForm::where('is_confirmed',1)->where('is_deleted',1)->orderBy('created_at','desc')->get();
+
+            if($roles->contains('role_id', 1) || Auth::user()->email == 'admin@admin.com')
+            {
+                $projects = RiskForm::where('is_confirmed',1)->where('is_deleted',1)->orderBy('created_at','desc')->get();
+
+            }elseif($roles->contains('role_id', 2) || Auth::user()->email == 'admin@admin.com')
+            {
+                $managment = AdminRole::where('user_id',Auth::user()->id)->where('role_id',2)->get()->first();
+                $management_id = $managment->management_id;
+                $projects = RiskForm::where('management',$management_id)->where('is_confirmed',1)->where('is_deleted',1)->orderBy('created_at','desc')->get();
+            }
         }
 
         return view('admin.risks.index',compact('projects','type'));

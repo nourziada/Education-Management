@@ -10,6 +10,12 @@ use Session;
 class UsersController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('isAdmin');
+        $this->middleware('isUsersRole');
+    }
+
 
     /*
      * Accept Or Reject User

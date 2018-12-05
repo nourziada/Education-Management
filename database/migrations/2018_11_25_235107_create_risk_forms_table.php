@@ -26,6 +26,9 @@ class CreateRiskFormsTable extends Migration
             $table->text('treatment');
             $table->text('end');
 
+            $table->string('management');
+            $table->string('department');
+
             $table->string('is_confirmed')->default(0);
             $table->string('is_deleted')->default(0);
             $table->string('status')->default(1);

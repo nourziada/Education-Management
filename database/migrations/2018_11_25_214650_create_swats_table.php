@@ -22,6 +22,9 @@ class CreateSwatsTable extends Migration
             $table->text('opportunities');
             $table->text('threats');
 
+            $table->string('management');
+            $table->string('department');
+
             $table->string('is_confirmed')->default(0);
             $table->string('is_deleted')->default(0);
             $table->string('status')->default(1);
