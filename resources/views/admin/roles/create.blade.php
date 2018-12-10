@@ -72,13 +72,13 @@
                                         <label for="management_id">الإدارة المسؤول عنها</label>
                                         <select class="form-control m-input" id="management_id" name="management_id" required>
                                             <option value="0" selected>جميع الإدارات</option>
-                                            <option value="1">الإدارات المرتبطة</option>
-                                            <option value="2">الموارد البشرية</option>
-                                            <option value="3">الشؤون المالية والادارية</option>
-                                            <option value="4">شؤون المباني</option>
-                                            <option value="5">الشؤون المدرسية</option>
-                                            <option value="6">الشؤون التعليمية - بنين</option>
-                                            <option value="7">الشؤون التعليمية - بنات</option>
+
+                                            @php $managements = \App\Management::get(); @endphp
+                                            @forelse($managements as $manag)
+                                                <option value="{{ $manag->id }}">{{ $manag->name }}</option>
+                                            @empty
+                                            @endforelse
+
                                         </select>
                                     </div>
 

@@ -109,21 +109,19 @@
                                 <div class="form-group m-form__group">
                                     <select required class="form-control m-input m-input--air m-input--pill" id="management" name="management">
                                         <option value="" selected disabled>الإدارة</option>
-                                        <option value="1">الإدارات المرتبطة</option>
-                                        <option value="2">الموارد البشرية</option>
-                                        <option value="3">الشؤون المالية والادارية</option>
-                                        <option value="4">شؤون المباني</option>
-                                        <option value="5">الشؤون المدرسية</option>
-                                        <option value="6">الشؤون التعليمية - بنين</option>
-                                        <option value="7">الشؤون التعليمية - بنات</option>
+                                        @forelse($managements as $manag)
+                                            <option value="{{ $manag->id }}">{{ $manag->name }}</option>
+                                        @empty
+                                        @endforelse
+
 
                                     </select>
                                 </div>
                             </div>
                             <div class="col-lg-6 d-none" id="is-section">
                                 <div class="form-group m-form__group">
-                                    <select required class="form-control m-input m-input--air m-input--pill" id="section" name="department">
-                                        <option value="">--اختر ادارة--</option>
+                                    <select required class="form-control m-input m-input--air m-input--pill" id="department" name="department">
+                                        <option value="">--اختر القسم --</option>
                                     </select>
                                 </div>
                             </div>
@@ -148,11 +146,7 @@
                                     <input class="form-control m-input" type="email" placeholder="البريد الاكتروني" name="email" required autocomplete="off">
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="form-group m-form__group">
-                                    <input class="form-control m-input" type="text" required placeholder="بريد راسل" name="mail" autocomplete="off">
-                                </div>
-                            </div>
+
                             <div class="col-lg-6">
                                 <div class="form-group m-form__group">
                                     <input class="form-control m-input" required type="text" placeholder="رقم الجوال" name="mobile" autocomplete="off">
@@ -225,28 +219,8 @@
 
 <script>
     $(document).ready(function () {
-        $("#management").change(function () {
-            var val = $(this).val();
-            if (val == "1") {
-                $("#section").html("<option value='1'>التخطيط والتطوير</option><option value='2'>تقنية المعلومات</option><option value='3'>الجودة الشاملة</option><option value='4'>الأمانة</option><option value='5'>الإعلام التربوي</option> <option value='6'>العلاقات العامة</option> <option value='7'>المراجعة الداخلية</option> <option value='8'>المتابعة</option> <option value='9'>الشؤون القانونية</option> <option value='10'>القضايا</option> <option value='11'>الأمن والسلامة </option> <option value='12'>الشراكة المجتمعية</option> <option value='13'>مركز التميز </option> <option value='14'>مكتب وفاء </option> ");
-            } else if (val == "2") {
-                $("#section").html("<option value='1'>تطوير الموارد البشرية </option><option value='2'>إدارة العمليات </option> <option value='3'>إدارة التواصل الداخلي </option>");
-            } else if (val == "3") {
-                $("#section").html("<option value='1'>الشؤون المالية</option><option value='2'>الميزانية</option> <option value='3'>المستودعات</option> <option value='4'>المشتريات</option> <option value='5'>الخدمات العامة</option> <option value='6'>مراقبة المخزون</option> <option value='7'>الاتصالات الإدارية</option>");
-            } else if (val == "4") {
-                $("#section").html("<option value='1'>التشغيل والصيانة</option> <option value='2'>الإشراف والتنفيذ</option> <option value='3'>الأراضي والبرمجة</option> <option value='4'>الدراسات والتصاميم</option>");
-            }
-            else if (val == "5") {
-                $("#section").html("<option value='1'>التخطيط المدرسي</option> <option value='2'>التجهيزات المدرسية</option> <option value='3'>خدمات الطلاب</option> ");
-            }
-            else if (val == "6") {
-                $("#section").html("<option value='1'>مكتب التعليم بتنومة</option> <option value='2'>مكتب التعليم ببني عمرو</option> <option value='3'>الإشراف التربوي</option> <option value='4'>التدريب والابتعاث</option> <option value='5'>الموهوبين</option> <option value='6'>التربية الخاصة</option> <option value='7'>التوجيه والإرشاد</option> <option value='8'>التوعية الإسلامية</option> <option value='9'>الاختبارات والقبول</option> <option value='10'>النشاط الطلابي</option> <option value='11'>تعليم الكبار</option> <option value='12'>وحدة شراكة المدرسة مع الأسرة والمجتمع</option> ");
-            }
-            else if (val == "7") {
-                $("#section").html("<option value='1'>الإشراف التربوي</option> <option value='2'>التدريب والابتعاث</option> <option value='3'>الموهوبات</option> <option value='4'>التربية الخاصة</option> <option value='5'>التوجيه والإرشاد</option> <option value='6'>التوعية الإسلامية</option> <option value='7'>الاختبارات والقبول</option> <option value='8'>نشاط الطالبات</option> <option value='9'>تعليم الكبيرات</option> <option value='10'>وحدة شراكة المدرسة مع الأسرة والمجتمع</option> <option value='11'>رياض الأطفال</option> ");
-            }
 
-        });
+
         $("#acc-type").change(function () {
             var val = $(this).val();
             if (val == "1") {
@@ -280,6 +254,32 @@
 
     </script>
 @endif
+
+{{-- Code for Get the Sub Categories When the Category Change --}}
+<script>
+    $(document).ready(function() {
+        $("#management").change(function () {
+            var management_id = document.getElementById("management").value;
+            var department = $('#department').empty();
+            $.ajax
+            ({
+                type: "get",
+                url: "/get-departments-by-id/" + management_id,
+                cache: false,
+                success: function (html) {
+                    $.each(html, function (i, v) {
+                        // console.log(v.id);
+                        $('<option value="' + v.id + '">' + v.name + '</option>').appendTo(department);
+
+                    });
+                }
+            });
+        });
+
+    });
+</script>
+
+{{-- End Code Get Sub Categories Ajax --}}
 <!--end::Page Scripts -->
 </body>
 

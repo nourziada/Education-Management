@@ -17,6 +17,13 @@ Route::get('/pdf','Web\HomeController@getPDF')->name('pdf');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
+/*
+|--------------------------------------------------------------------------
+| Ajax Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/get-departments-by-id/{manag_id}','Web\AjaxController@getDepartmentById');
 
 /*
 |--------------------------------------------------------------------------
@@ -103,6 +110,13 @@ Route::prefix('system-dashboard')->group(function() {
 
 Route::prefix('admin')->group(function() {
 
+    /*
+    |--------------------------------------------------------------------------
+    | Plans Models Roles نماذج الخطط
+    |--------------------------------------------------------------------------
+    */
+
+    Route::resource('plans-models','Admin\PlansModelsController');
 
     /*
     |--------------------------------------------------------------------------
@@ -174,6 +188,8 @@ Route::prefix('admin')->group(function() {
     Route::resource('/measurement-menus','Admin\MeasurementController');
     Route::resource('/ministerial-initiatives-menus','Admin\MinisterialInitiativesController');
     Route::resource('/strategic-initiatives-menus','Admin\StrategicInitiativesController');
+    Route::resource('/management-menus','Admin\ManagementController');
+    Route::resource('/department-menus','Admin\DepartmentController');
 
 
     /*

@@ -258,57 +258,28 @@
                     <div class="table-responsive">
                         <table class="table table-1 table-bordered table-striped">
                             <thead>
+
+
                             <tr>
                                 <th>اسم النموذج</th>
                                 <th>تحميل</th>
                             </tr>
                             </thead>
                             <tbody>
+
+                            @forelse($plansModels as $model)
                             <tr>
-                                <td>اسم تجريبي</td>
+                                <td>{{ $model->name }}</td>
                                 <td>
-                                    <a href="#" class="down-file">
+                                    <a href="{{ asset('uploads/plans_models/' . $model->file) }}" class="down-file">
                                         <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
 
                                     </a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>اسم تجريبي</td>
-                                <td>
-                                    <a href="#" class="down-file">
-                                        <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
+                            @empty
+                            @endforelse
 
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>اسم تجريبي</td>
-                                <td>
-                                    <a href="#" class="down-file">
-                                        <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
-
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>اسم تجريبي</td>
-                                <td>
-                                    <a href="#" class="down-file">
-                                        <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
-
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>اسم تجريبي</td>
-                                <td>
-                                    <a href="#" class="down-file">
-                                        <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
-
-                                    </a>
-                                </td>
-                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -329,31 +300,32 @@
                 <div class="col-lg-12 col-md-12">
                     <div class="tab tab-vertical nav-border ">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            @php $managments = \App\Management::get(); @endphp
+
+                            @php $count = 0; @endphp
+                            @forelse($managments as $manag)
                             <li class="nav-item">
-                                <a data-scroll-ignore="1" class="nav-link active show" id="home-10-tab" data-toggle="tab" href="#home-10"
-                                   role="tab" aria-controls="home-10" aria-selected="true"> ادارة 1</a>
+                                <a data-scroll-ignore="1" class="nav-link @if($count == 0) active show @endif" id="{{$manag->id}}-tab" data-toggle="tab" href="#tab{{$manag->id}}"
+                                   role="tab" aria-controls="{{$manag->id}}" aria-selected="true">{{ $manag->name }}</a>
                             </li>
-                            <li class="nav-item">
-                                <a data-scroll-ignore="1" class="nav-link" id="profile-10-tab" data-toggle="tab" href="#profile-10" role="tab"
-                                   aria-controls="profile-10" aria-selected="false"> ادارة 2 </a>
-                            </li>
-                            <li class="nav-item">
-                                <a data-scroll-ignore="1" class="nav-link" id="portfolio-10-tab" data-toggle="tab" href="#portfolio-10"
-                                   role="tab" aria-controls="portfolio-10" aria-selected="false"> ادارة 3 </a>
-                            </li>
-                            <li class="nav-item">
-                                <a data-scroll-ignore="1" class="nav-link" id="contact-10-tab" data-toggle="tab" href="#contact-10" role="tab"
-                                   aria-controls="contact-10" aria-selected="false"> ادارة 4 </a>
-                            </li>
+
+                            @php $count++; @endphp
+                            @empty
+                            @endforelse
+
 
                             <li class="mt-2 p-2 text-center d-none d-lg-block project-num">
                                 عدد المشاريع الكلي :
-                                <span class="d-block">740 مشروع</span>
+                                <span class="d-block"><span id="TotalProjectsSpan"></span>  مشروع</span>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade active show" id="home-10" role="tabpanel"
-                                 aria-labelledby="home-10-tab">
+
+                            @php $count = 0; @endphp
+                            @php $totalProjects = 0; @endphp
+                            @forelse($managments as $manag)
+                                <div class="tab-pane fade @if($count == 0) active show @endif" id="tab{{$manag->id}}" role="tabpanel"
+                                 aria-labelledby="{{$manag->id}}-tab">
                                 <div class="table-responsive">
                                     <table class="table table-1 table-bordered table-striped">
                                         <thead>
@@ -363,176 +335,43 @@
                                         </tr>
                                         </thead>
                                         <tbody>
+
+                                        @php $departments = \App\Department::where('management_id',$manag->id)->get(); @endphp
+
+                                        @forelse($departments as $dep)
                                         <tr>
-                                            <td>قسم 1</td>
+                                            <td>{{ $dep->name }}</td>
                                             <td>
-                                                5
+                                                @php
+                                                    $total = 0;
+                                                    $stratigecsPlans = \App\Strategic::where('management',$manag->id)->where('department',$dep->id)->get();
+                                                    $operationalPlans = \App\OperationalPlan::where('management',$manag->id)->where('department',$dep->id)->get();
+
+                                                    $total = $stratigecsPlans->count() + $operationalPlans->count();
+                                                    $totalProjects = $totalProjects + $total;
+                                                @endphp
+
+                                                {{ $total }}
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>قسم 2</td>
-                                            <td>
-                                                15
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>قسم 3</td>
-                                            <td>
-                                                55
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>قسم 4</td>
-                                            <td>
-                                                40
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>قسم 5</td>
-                                            <td>
-                                                17
-                                            </td>
-                                        </tr>
+                                        @empty
+                                        @endforelse
+
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="profile-10" role="tabpanel" aria-labelledby="profile-10-tab">
-                                <div class="table-responsive">
-                                    <table class="table table-1 table-bordered table-striped">
-                                        <thead>
-                                        <tr>
-                                            <th width="60%">القسم</th>
-                                            <th>عدد المشاريع</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>قسم 1</td>
-                                            <td>
-                                                5
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>قسم 2</td>
-                                            <td>
-                                                15
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>قسم 3</td>
-                                            <td>
-                                                55
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>قسم 4</td>
-                                            <td>
-                                                40
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>قسم 5</td>
-                                            <td>
-                                                17
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="portfolio-10" role="tabpanel"
-                                 aria-labelledby="portfolio-10-tab">
-                                <div class="table-responsive">
-                                    <table class="table table-1 table-bordered table-striped">
-                                        <thead>
-                                        <tr>
-                                            <th width="60%">القسم</th>
-                                            <th>عدد المشاريع</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>قسم 1</td>
-                                            <td>
-                                                5
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>قسم 2</td>
-                                            <td>
-                                                15
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>قسم 3</td>
-                                            <td>
-                                                55
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>قسم 4</td>
-                                            <td>
-                                                40
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>قسم 5</td>
-                                            <td>
-                                                17
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="contact-10" role="tabpanel" aria-labelledby="contact-10-tab">
-                                <div class="table-responsive">
-                                    <table class="table table-1 table-bordered table-striped">
-                                        <thead>
-                                        <tr>
-                                            <th width="60%">القسم</th>
-                                            <th>عدد المشاريع</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>قسم 1</td>
-                                            <td>
-                                                5
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>قسم 2</td>
-                                            <td>
-                                                15
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>قسم 3</td>
-                                            <td>
-                                                55
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>قسم 4</td>
-                                            <td>
-                                                40
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>قسم 5</td>
-                                            <td>
-                                                17
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+
+                            @php $count++; @endphp
+                            @empty
+                            @endforelse
+
+                            <input type="hidden" id="totalProjectsValue" value="{{ $totalProjects }}">
+
+
                             <div class="mt-2 p-2 text-center d-block d-lg-none project-num">
                                 عدد المشاريع الكلي :
-                                <span class="d-block">740 مشروع</span>
+                                <span class="d-block">{{ $totalProjects }} مشروع</span>
                             </div>
                         </div>
                     </div>
@@ -615,6 +454,11 @@
 <!-- custom -->
 <script src="{{ asset('web/js/custom.js') }}"></script>
 
+<script>
+    var totalProjectsValue = $('#totalProjectsValue').val();
+    $("#TotalProjectsSpan").text(totalProjectsValue);
+
+</script>
 
 </body>
 

@@ -105,9 +105,30 @@
                             </a>
                         </li>
 
+                        <li class="m-menu__item " aria-haspopup="true">
+                            <a href="{{ route('management-menus.index') }}" class="m-menu__link ">
+                                <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+                                <span class="m-menu__link-text">الادارات</span>
+                            </a>
+                        </li>
+
+                        <li class="m-menu__item " aria-haspopup="true">
+                            <a href="{{ route('department-menus.index') }}" class="m-menu__link ">
+                                <i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+                                <span class="m-menu__link-text">الأقسام</span>
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
             </li>
+
+                <li class="m-menu__item" aria-haspopup="true">
+                    <a href="{{ route('plans-models.index') }}" class="m-menu__link ">
+                        <i class="m-menu__link-icon flaticon-line-graph"></i>
+                        <span class="m-menu__link-title"> <span class="m-menu__link-wrap"> <span class="m-menu__link-text">نماذج الخطط</span></span></span>
+                    </a>
+                </li>
             @endif
 
             @if($roles->contains('role_id', 1) || $roles->contains('role_id', 2) || $user->email == 'admin@admin.com')

@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('sefa');
             $table->string('mobile');
             $table->string('phone');
-            $table->string('mail');
+            $table->string('mail')->nullable();
             $table->string('civil_registry');
             $table->string('admin')->default(2);
             $table->string('status')->default(0);

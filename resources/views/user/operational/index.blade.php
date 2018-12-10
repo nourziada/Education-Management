@@ -77,175 +77,25 @@
                                             <td>{{ $user->user_name }}</td>
 
                                             <td>
-                                                @if($user->management == 1)
-                                                    الإدارات المرتبطة
-                                                @elseif($user->management == 2)
-                                                    الموارد البشرية
-                                                @elseif($user->management == 3)
-                                                    الشؤون المالية والادارية
-                                                @elseif($user->management == 4)
-                                                    شؤون المباني
-                                                @elseif($user->management == 5)
-                                                    الشؤون المدرسية
-                                                @elseif($user->management == 6)
-                                                    الشؤون التعليمية - بنين
-                                                @elseif($user->management == 7)
-                                                    الشؤون التعليمية - بنات
+                                                @php $managment = \App\Management::find($user->management); @endphp
+
+                                                @if($managment != null)
+                                                    {{ $managment->name }}
+                                                @else
+                                                    -
                                                 @endif
                                             </td>
 
                                             <td>
-                                            @if($user->management == 1)
 
-                                                @if($user->department == 1)
-                                                    التخطيط والتطوير
-                                                @elseif($user->department == 2)
-                                                    تقنية المعلومات
-                                                @elseif($user->department == 3)
-                                                    الجودة الشاملة
-                                                @elseif($user->department == 4)
-                                                    الأمانة
-                                                @elseif($user->department == 5)
-                                                    الإعلام التربوي
-                                                @elseif($user->department == 6)
-                                                    العلاقات العامة
-                                                @elseif($user->department == 7)
-                                                    المراجعة الداخلية
-                                                @elseif($user->department == 8)
-                                                    المتابعة
-                                                @elseif($user->department == 9)
-                                                    الشؤون القانونية
-                                                @elseif($user->department == 10)
-                                                    القضايا
-                                                @elseif($user->department == 11)
-                                                    الأمن والسلامة
-                                                @elseif($user->department == 12)
-                                                    الشراكة المجتمعية
-                                                @elseif($user->department == 13)
-                                                    مركز التميز
-                                                @elseif($user->department == 14)
-                                                    مكتب وفاء
+                                                @php $department = \App\Department::find($user->department); @endphp
+
+                                                @if($department != null)
+                                                    {{ $department->name }}
+                                                @else
+                                                    -
                                                 @endif
 
-
-
-                                            @elseif($user->management == 2)
-
-                                                @if($user->department == 1)
-                                                    تطوير الموارد البشرية
-                                                @elseif($user->department == 2)
-                                                    إدارة العمليات
-                                                @elseif($user->department == 3)
-                                                    إدارة التواصل الداخلي
-                                                @endif
-
-
-                                            @elseif($user->management == 3)
-
-                                                @if($user->department == 1)
-                                                    الشؤون المالية
-                                                @elseif($user->department == 2)
-                                                    الميزانية
-                                                @elseif($user->department == 3)
-                                                    المستودعات
-                                                @elseif($user->department == 4)
-                                                    المشتريات
-                                                @elseif($user->department == 5)
-                                                    الخدمات العامة
-                                                @elseif($user->department == 6)
-                                                    مراقبة المخزون
-                                                @elseif($user->department == 7)
-                                                    الاتصالات الإدارية
-                                                @endif
-
-
-
-                                            @elseif($user->management == 4)
-
-                                                @if($user->department == 1)
-                                                    التشغيل والصيانة
-                                                @elseif($user->department == 2)
-                                                    الإشراف والتنفيذ
-                                                @elseif($user->department == 3)
-                                                    الأراضي والبرمجة
-                                                @elseif($user->department == 4)
-                                                    الدراسات والتصاميم
-                                                @endif
-
-
-                                            @elseif($user->management == 5)
-
-
-                                                @if($user->department == 1)
-                                                    التخطيط المدرسي
-                                                @elseif($user->department == 2)
-                                                    التجهيزات المدرسية
-                                                @elseif($user->department == 3)
-                                                    خدمات الطلاب
-                                                @endif
-
-
-                                            @elseif($user->management == 6)
-
-
-                                                @if($user->department == 1)
-                                                    مكتب التعليم بتنومة
-                                                @elseif($user->department == 2)
-                                                    مكتب التعليم ببني عمرو
-                                                @elseif($user->department == 3)
-                                                    الإشراف التربوي
-                                                @elseif($user->department == 4)
-                                                    التدريب والابتعاث
-                                                @elseif($user->department == 5)
-                                                    الموهوبين
-                                                @elseif($user->department == 6)
-                                                    التربية الخاصة
-                                                @elseif($user->department == 7)
-                                                    التوجيه والإرشاد
-                                                @elseif($user->department == 8)
-                                                    التوعية الإسلامية
-                                                @elseif($user->department == 9)
-                                                    الاختبارات والقبول
-                                                @elseif($user->department == 10)
-                                                    النشاط الطلابي
-                                                @elseif($user->department == 11)
-                                                    تعليم الكبار
-                                                @elseif($user->department == 12)
-                                                    وحدة شراكة المدرسة مع الأسرة والمجتمع
-                                                @endif
-
-
-
-                                            @elseif($user->management == 7)
-
-
-                                                @if($user->department == 1)
-                                                    الإشراف التربوي
-                                                @elseif($user->department == 2)
-                                                    التدريب والابتعاث
-                                                @elseif($user->department == 3)
-                                                    الموهوبات
-                                                @elseif($user->department == 4)
-                                                    التربية الخاصة
-                                                @elseif($user->department == 5)
-                                                    التوجيه والإرشاد
-                                                @elseif($user->department == 6)
-                                                    التوعية الإسلامية
-                                                @elseif($user->department == 7)
-                                                    الاختبارات والقبول
-                                                @elseif($user->department == 8)
-                                                    نشاط الطالبات
-                                                @elseif($user->department == 9)
-                                                    تعليم الكبيرات
-                                                @elseif($user->department == 10)
-                                                    وحدة شراكة المدرسة مع الأسرة والمجتمع
-                                                @elseif($user->department == 11)
-                                                    رياض الأطفال
-                                                @endif
-
-
-
-                                            @endif
                                             </td>
 
                                             <td>{{ $project->plane_title }}</td>

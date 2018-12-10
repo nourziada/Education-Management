@@ -71,20 +71,13 @@
                                                                     الاطلاع على التقارير وطباعتها لجميع الادارات
                                                                 @elseif($role->role_id == 2)
                                                                     الإطلاع على التقارير وطباعتها لإدارة
-                                                                    @if($role->management_id == 1)
-                                                                        الإدارات المرتبطة
-                                                                    @elseif($role->management_id == 2)
-                                                                        الموارد البشرية
-                                                                    @elseif($role->management_id == 3)
-                                                                        الشؤون المالية والادارية
-                                                                    @elseif($role->management_id == 4)
-                                                                        شؤون المباني
-                                                                    @elseif($role->management_id == 5)
-                                                                        الشؤون المدرسية
-                                                                    @elseif($role->management_id == 6)
-                                                                        الشؤون التعليمية - بنين
-                                                                    @elseif($role->management_id == 7)
-                                                                        الشؤون التعليمية - بنات
+
+                                                                    @php $managment = \App\Management::find($role->management_id); @endphp
+
+                                                                    @if($managment != null)
+                                                                        {{ $managment->name }}
+                                                                    @else
+                                                                        -
                                                                     @endif
 
                                                                 @elseif($role->role_id == 3)
@@ -92,20 +85,12 @@
                                                                         حذف و قبول التقارير جميع الادارات
                                                                     @else
                                                                         حذف او قبول التقارير لإدارة
-                                                                        @if($role->management_id == 1)
-                                                                            الإدارات المرتبطة
-                                                                        @elseif($role->management_id == 2)
-                                                                            الموارد البشرية
-                                                                        @elseif($role->management_id == 3)
-                                                                            الشؤون المالية والادارية
-                                                                        @elseif($role->management_id == 4)
-                                                                            شؤون المباني
-                                                                        @elseif($role->management_id == 5)
-                                                                            الشؤون المدرسية
-                                                                        @elseif($role->management_id == 6)
-                                                                            الشؤون التعليمية - بنين
-                                                                        @elseif($role->management_id == 7)
-                                                                            الشؤون التعليمية - بنات
+                                                                        @php $managment = \App\Management::find($role->management_id); @endphp
+
+                                                                        @if($managment != null)
+                                                                            {{ $managment->name }}
+                                                                        @else
+                                                                            -
                                                                         @endif
                                                                     @endif
 

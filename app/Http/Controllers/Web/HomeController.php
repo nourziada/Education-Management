@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Department;
 use App\EducationalResearch;
 use App\Initiative;
+use App\Management;
 use App\Measurement;
 use App\MinisterialInitiatives;
 use App\OperationalPlan;
+use App\PlansModel;
 use App\RiskForm;
 use App\Strategic;
 use App\StrategicGoal;
@@ -79,8 +82,24 @@ class HomeController extends Controller
 
         if($user != null)
         {
-            $management = $this->getManagement($user);
-            $department = $this->getDepartment($user);
+            $management = Management::find($user->management);
+            if($management != null)
+            {
+                $management = $management->name;
+            }else
+            {
+                $management = "";
+            }
+
+
+            $department = Department::find($user->department);
+            if($department != null)
+            {
+                $department = $department->name;
+            }else
+            {
+                $department = "";
+            }
         }else
         {
             $management = "";
@@ -131,8 +150,24 @@ class HomeController extends Controller
 
         if($user != null)
         {
-            $management = $this->getManagement($user);
-            $department = $this->getDepartment($user);
+            $management = Management::find($user->management);
+            if($management != null)
+            {
+                $management = $management->name;
+            }else
+            {
+                $management = "";
+            }
+
+
+            $department = Department::find($user->department);
+            if($department != null)
+            {
+                $department = $department->name;
+            }else
+            {
+                $department = "";
+            }
         }else
         {
             $management = "";
@@ -187,8 +222,24 @@ class HomeController extends Controller
         $document = $phpWord->loadTemplate('doc/strategic_plan.docx');
 
 
-        $management = $this->getManagement($data);
-        $department = $this->getDepartment($data);
+        $management = Management::find($data->management);
+        if($management != null)
+        {
+            $management = $management->name;
+        }else
+        {
+            $management = "";
+        }
+
+
+        $department = Department::find($data->department);
+        if($department != null)
+        {
+        $department = $department->name;
+        }else
+        {
+        $department = "";
+        }
 
 
         $strategic_goal = StrategicGoal::find($data->strategic_goal);
@@ -289,8 +340,24 @@ class HomeController extends Controller
         }
 
 
-        $management = $this->getManagement($data);
-        $department = $this->getDepartment($data);
+        $management = Management::find($data->management);
+        if($management != null)
+        {
+            $management = $management->name;
+        }else
+        {
+            $management = "";
+        }
+
+
+        $department = Department::find($data->department);
+        if($department != null)
+        {
+            $department = $department->name;
+        }else
+        {
+            $department = "";
+        }
 
 
 
@@ -332,182 +399,8 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('web.index');
+        $plansModels = PlansModel::get();
+        return view('web.index',compact('plansModels'));
     }
 
-
-    public function getDepartment($data)
-    {
-        if($data->management == 1)
-        {
-            if($data->department == 1)
-                $department = ' التخطيط والتطوير';
-            elseif($data->department == 2)
-                $department = ' تقنية المعلومات';
-            elseif($data->department == 3)
-                $department = 'الجودة الشاملة';
-            elseif($data->department == 4)
-                $department = 'الأمانة';
-            elseif($data->department == 5)
-                $department = 'الإعلام التربوي';
-            elseif($data->department == 6)
-                $department = 'العلاقات العامة';
-            elseif($data->department == 7)
-                $department = 'المراجعة الداخلية';
-            elseif($data->department == 8)
-                $department = 'المتابعة';
-            elseif($data->department == 9)
-                $department = 'الشؤون القانونية';
-            elseif($data->department == 10)
-                $department = 'القضايا';
-            elseif($data->department == 11)
-                $department = 'الأمن والسلامة';
-            elseif($data->department == 12)
-                $department = 'الشراكة المجتمعية';
-            elseif($data->department == 13)
-                $department = 'مركز التميز';
-            elseif($data->department == 14)
-                $department = 'مكتب وفاء';
-
-
-
-        }elseif($data->management == 2)
-        {
-            if($data->department == 1)
-                $department = 'تطوير الموارد البشرية';
-            elseif($data->department == 2)
-                $department = 'إدارة العمليات';
-            elseif($data->department == 3)
-                $department = 'إدارة التواصل الداخلي';
-
-
-
-        }elseif($data->management == 3)
-        {
-            if($data->department == 1)
-                $department = 'الشؤون المالية';
-            elseif($data->department == 2)
-                $department = 'الميزانية';
-            elseif($data->department == 3)
-                $department = 'المستودعات';
-            elseif($data->department == 4)
-                $department = 'المشتريات';
-            elseif($data->department == 5)
-                $department = 'الخدمات العامة';
-            elseif($data->department == 6)
-                $department = 'مراقبة المخزون';
-            elseif($data->department == 7)
-                $department = 'الاتصالات الإدارية';
-
-
-
-        }elseif($data->management == 4)
-        {
-            if($data->department == 1)
-                $department = 'التشغيل والصيانة';
-            elseif($data->department == 2)
-                $department = 'الإشراف والتنفيذ';
-            elseif($data->department == 3)
-                $department = 'الأراضي والبرمجة';
-            elseif($data->department == 4)
-                $department = 'الدراسات والتصاميم';
-
-
-
-        }elseif($data->management == 5)
-        {
-            if($data->department == 1)
-                $department = 'التخطيط المدرسي';
-            elseif($data->department == 2)
-                $department = 'التجهيزات المدرسية';
-            elseif($data->department == 3)
-                $department = 'خدمات الطلاب';
-
-
-
-
-        }elseif($data->management == 6)
-        {
-            if($data->department == 1)
-                $department = 'مكتب التعليم بتنومة';
-            elseif($data->department == 2)
-                $department = 'مكتب التعليم ببني عمرو';
-            elseif($data->department == 3)
-                $department = 'الإشراف التربوي';
-            elseif($data->department == 4)
-                $department = 'التدريب والابتعاث';
-            elseif($data->department == 5)
-                $department = 'الموهوبين';
-            elseif($data->department == 6)
-                $department = 'التربية الخاصة';
-            elseif($data->department == 7)
-                $department = 'التوجيه والإرشاد';
-            elseif($data->department == 8)
-                $department = 'التوعية الإسلامية';
-            elseif($data->department == 9)
-                $department = 'الاختبارات والقبول';
-            elseif($data->department == 10)
-                $department = 'النشاط الطلابي';
-            elseif($data->department == 11)
-                $department = 'تعليم الكبار';
-            elseif($data->department == 12)
-                $department = 'وحدة شراكة المدرسة مع الأسرة والمجتمع';
-
-
-
-
-        }elseif($data->management == 7)
-        {
-            if($data->department == 1)
-                $department = 'الإشراف التربوي';
-            elseif($data->department == 2)
-                $department = 'التدريب والابتعاث';
-            elseif($data->department == 3)
-                $department = 'الموهوبات';
-            elseif($data->department == 4)
-                $department = 'التربية الخاصة';
-            elseif($data->department == 5)
-                $department = 'التوجيه والإرشاد';
-            elseif($data->department == 6)
-                $department = 'التوعية الإسلامية';
-            elseif($data->department == 7)
-                $department = 'الاختبارات والقبول';
-            elseif($data->department == 8)
-                $department = 'نشاط الطالبات';
-            elseif($data->department == 9)
-                $department = 'تعليم الكبيرات';
-            elseif($data->department == 10)
-                $department = 'وحدة شراكة المدرسة مع الأسرة والمجتمع';
-            elseif($data->department == 11)
-                $department = 'رياض الأطفال';
-
-        }
-
-
-
-        return $department;
-    }
-
-    public function getManagement($data)
-    {
-        if($data->management == 1)
-        {
-            $management = 'الإدارات المرتبطة';
-        }
-        elseif($data->management == 2)
-            $management = 'الموارد البشرية';
-        elseif($data->management == 3)
-            $management = 'الشؤون المالية والادارية';
-        elseif($data->management == 4)
-            $management = ' شؤون المباني';
-        elseif($data->management == 5)
-            $management = 'الشؤون المدرسية';
-        elseif($data->management == 6)
-            $management = 'الشؤون التعليمية - بنين';
-        elseif($data->management == 7)
-            $management = 'الشؤون التعليمية - بنات';
-
-
-        return $management;
-    }
 }

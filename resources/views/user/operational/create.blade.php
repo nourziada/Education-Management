@@ -182,14 +182,12 @@
 
 
                                             {{-- Code Here --}}
-
-                                            <option value="الإدارات المرتبطة">الإدارات المرتبطة</option>
-                                            <option value="الموارد البشرية">الموارد البشرية</option>
-                                            <option value="الشؤون المالية والادارية">الشؤون المالية والادارية</option>
-                                            <option value="شؤون المباني">شؤون المباني</option>
-                                            <option value="الشؤون المدرسية">الشؤون المدرسية</option>
-                                            <option value="الشؤون التعليمية - بنين">الشؤون التعليمية - بنين</option>
-                                            <option value="الشؤون التعليمية - بنات">الشؤون التعليمية - بنات</option>
+                                            @php $managements = \App\Management::get(); @endphp
+                                            @forelse($managements as $manag)
+                                                <option value="{{ $manag->name }}">{{ $manag->name }}</option>
+                                            @empty
+                                            @endforelse
+                                            
 
                                         </select>
                                     </div>
