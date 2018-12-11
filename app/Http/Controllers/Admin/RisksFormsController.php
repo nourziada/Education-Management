@@ -18,6 +18,50 @@ class RisksFormsController extends Controller
         $this->middleware('isAdmin');
     }
 
+    /*
+     * Filter Forms
+     */
+
+    public function filterPlans(Request $request)
+    {
+        $managment_id = $request->management;
+        $department_id = $request->department;
+        $type = $request->type;
+
+        if($type == 1)
+        {
+
+            $projects = RiskForm::where('management',$managment_id)
+                                    ->where('department',$department_id)
+                                    ->where('is_confirmed',1)->where('is_deleted',0)->orderBy('created_at','desc')->get();
+
+        }
+
+
+        // Not Confirmed
+        if($type == 2)
+        {
+
+            $projects = RiskForm::where('management',$managment_id)
+                                    ->where('department',$department_id)
+                                    ->where('is_confirmed',0)->orderBy('created_at','desc')->get();
+
+        }
+
+
+        // Confirmed , Deleted
+        if($type == 3)
+        {
+
+            $projects = RiskForm::where('management',$managment_id)
+                                ->where('department',$department_id)
+                                ->where('is_confirmed',1)->where('is_deleted',1)->orderBy('created_at','desc')->get();
+
+        }
+
+        return view('admin.risks.index',compact('projects','type'));
+    }
+
 
     /*
     * Get Plan Details

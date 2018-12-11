@@ -112,6 +112,14 @@ Route::prefix('admin')->group(function() {
 
     /*
     |--------------------------------------------------------------------------
+    | Admin Statistics تقرير احصائي
+    |--------------------------------------------------------------------------
+    */
+
+    Route::post('/statistics/send','Admin\StatisticsController@SendData')->name('admin.send.statistics');
+    Route::get('/statistics','Admin\StatisticsController@getPage')->name('admin.page.statistics');
+    /*
+    |--------------------------------------------------------------------------
     | Plans Models Roles نماذج الخطط
     |--------------------------------------------------------------------------
     */
@@ -141,7 +149,7 @@ Route::prefix('admin')->group(function() {
     | Risks Forms
     |--------------------------------------------------------------------------
     */
-
+    Route::post('/risks-forms/filter','Admin\RisksFormsController@filterPlans')->name('admin.risks.filter');
     Route::get('/risks-forms/details/{id}','Admin\RisksFormsController@getFormDetails')->name('admin.risks.details');
     Route::get('/risks-forms/{type}','Admin\RisksFormsController@getFormsWithType')->name('admin.risks.type');
     Route::get('/risks-forms/action/accept/{id}','Admin\RisksFormsController@acceptForm')->name('admin.risks.accept');
@@ -152,7 +160,7 @@ Route::prefix('admin')->group(function() {
     | Swat Forms
     |--------------------------------------------------------------------------
     */
-
+    Route::post('/swat-forms/filter','Admin\SwatController@filterPlans')->name('admin.swat.filter');
     Route::get('/swat-forms/details/{id}','Admin\SwatController@getFormDetails')->name('admin.swat.details');
     Route::get('/swat-forms/{type}','Admin\SwatController@getFormsWithType')->name('admin.swat.type');
     Route::get('/swat-forms/action/accept/{id}','Admin\SwatController@acceptForm')->name('admin.swat.accept');
@@ -163,7 +171,7 @@ Route::prefix('admin')->group(function() {
     | Operational Planes
     |--------------------------------------------------------------------------
     */
-
+    Route::post('/operational-plans/filter','Admin\OperationalPlanesController@filterPlans')->name('admin.operational.plans.filter');
     Route::get('/operational-plans/details/{id}','Admin\OperationalPlanesController@getPlanDetails')->name('admin.operational.plans.details');
     Route::get('/operational-plans/{type}','Admin\OperationalPlanesController@getPlansWithType')->name('admin.operational.plans.type');
     Route::get('/operational-plans/action/accept/{id}','Admin\OperationalPlanesController@acceptPlan')->name('admin.operational.plans.accept');
@@ -173,6 +181,7 @@ Route::prefix('admin')->group(function() {
     | Strategic Plans
     |--------------------------------------------------------------------------
     */
+    Route::post('/strategic-plans/filter','Admin\StrategicPlansController@filterPlans')->name('admin.strategic.plans.filter');
     Route::get('/strategic-plans/details/{id}','Admin\StrategicPlansController@getPlanDetails')->name('admin.strategic.plans.details');
     Route::get('/strategic-plans/{type}','Admin\StrategicPlansController@getPlansWithType')->name('admin.strategic.plans.type');
     Route::get('/strategic-plans/action/accept/{id}','Admin\StrategicPlansController@acceptPlan')->name('admin.strategic.plans.accept');
@@ -201,6 +210,8 @@ Route::prefix('admin')->group(function() {
     Route::get('/users/{type}','Admin\UsersController@getUsers')->name('admin.users');
     Route::get('/users/details/{id}','Admin\UsersController@getUserDetails')->name('admin.users.details');
     Route::get('/users/action/{action}/{id}','Admin\UsersController@acceptRejectUser')->name('admin.users.action');
+
+
 
     Route::get('/','Admin\HomeController@index')->name('admin.index');
     /*

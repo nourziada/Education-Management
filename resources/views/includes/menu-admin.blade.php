@@ -18,8 +18,20 @@
                 </a>
             </li>
 
+
+
             @php $user = \App\User::find(Auth::user()->id); @endphp
             @php $roles = \App\AdminRole::where('user_id',$user->id)->get(); @endphp
+
+            @if($user->email == 'admin@admin.com')
+                <li class="m-menu__item" aria-haspopup="true">
+                    <a href="{{ route('admin.page.statistics') }}" class="m-menu__link "><i
+                                class="m-menu__link-icon flaticon-presentation-1"></i><span class="m-menu__link-title"> <span
+                                    class="m-menu__link-wrap"> <span class="m-menu__link-text">تقرير احصائي</span>
+											</span></span>
+                    </a>
+                </li>
+            @endif
 
             @if($roles->contains('role_id', 6) || $user->email == 'admin@admin.com')
                 <li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true" m-menu-submenu-toggle="hover">

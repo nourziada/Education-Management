@@ -37,6 +37,9 @@ class CreateEducationalResearchesTable extends Migration
             $table->string('search_tools',255);
             $table->string('letter_approval',255);
 
+            $table->string('management');
+            $table->string('department');
+
             $table->string('is_confirmed')->default(0);
             $table->string('is_deleted')->default(0);
             $table->string('status')->default(1);

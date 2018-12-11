@@ -28,3 +28,8 @@
 {
     border-color: #595a5abf;
 }
+
+select
+{
+    padding: 0rem 1.15rem !important;
+}

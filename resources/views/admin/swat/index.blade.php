@@ -46,6 +46,70 @@
                                 </div>
                             </div>
                             <div class="m-portlet__body">
+
+                                @php $user = \App\User::find(Auth::user()->id); @endphp
+                                @php $roles = \App\AdminRole::where('user_id',$user->id)->get(); @endphp
+
+                                @if($roles->contains('role_id', 1) || $user->email == 'admin@admin.com')
+                                    <form class="m-form m-form--fit m--margin-bottom-20" action="{{ route('admin.swat.filter') }}" method="post">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="type" value="{{$type}}">
+                                        <div class="row m--margin-bottom-20">
+
+                                            <div class="col-lg-3 m--margin-bottom-10-tablet-and-mobile">
+                                                <label>الإدارة:</label>
+                                                <select class="form-control m-input" data-col-index="2" id="management" name="management">
+                                                    @php $managments = \App\Management::get(); @endphp
+
+                                                    @forelse($managments as $manag)
+                                                        <option value="{{ $manag->id }}">{{ $manag->name }}</option>
+                                                    @empty
+                                                    @endforelse
+                                                </select>
+                                            </div>
+
+                                            <div class="col-lg-3 m--margin-bottom-10-tablet-and-mobile">
+                                                <label>الأقسام:</label>
+                                                <select class="form-control m-input" data-col-index="2" id="department" name="department">
+                                                    @php $departments = \App\Department::where('management_id',$managments[0]->id)->get(); @endphp
+                                                    @forelse($departments as $dep)
+                                                        <option value="{{ $dep->id }}">{{ $dep->name }}</option>
+                                                    @empty
+                                                    @endforelse
+                                                </select>
+                                            </div>
+
+                                            <div class="col-lg-6 m--margin-bottom-10-tablet-and-mobile">
+                                                <label>اسم البرنامج:</label>
+                                                <select class="form-control m-input" data-col-index="2" name="operational_plan_id">
+                                                    @php $opertionalPlans = \App\OperationalPlan::get(); @endphp
+                                                    @forelse($opertionalPlans as $plan)
+                                                        <option value="{{ $plan->id }}">{{ $plan->plane_title }}</option>
+                                                    @empty
+                                                    @endforelse
+
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <button class="btn btn-brand m-btn m-btn--icon" type="submit" id="m_search">
+												<span>
+													<i class="la la-search"></i>
+													<span>فلترة البيانات</span>
+												</span>
+                                                </button>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="m-separator m-separator--md m-separator--dashed"></div>
+                                    </form>
+                                @endif
+
+
                                 <table class="table table-striped- table-bordered table-hover table-checkable"
                                        id="m_table_1">
                                     <thead>
@@ -182,6 +246,32 @@
                 DatatablesBasicHeaders.init();
             });
         </script>
+
+        {{-- Code for Get the Departments When the Managment Change --}}
+        <script>
+            $(document).ready(function() {
+                $("#management").change(function () {
+                    var management_id = document.getElementById("management").value;
+                    var department = $('#department').empty();
+                    $.ajax
+                    ({
+                        type: "get",
+                        url: "/get-departments-by-id/" + management_id,
+                        cache: false,
+                        success: function (html) {
+                            $.each(html, function (i, v) {
+                                // console.log(v.id);
+                                $('<option value="' + v.id + '">' + v.name + '</option>').appendTo(department);
+
+                            });
+                        }
+                    });
+                });
+
+            });
+        </script>
+
+        {{-- End Code Get Sub Categories Ajax --}}
 
     @endpush
 @stop
