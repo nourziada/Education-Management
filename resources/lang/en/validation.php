@@ -146,6 +146,8 @@ return [
         'email' => 'البريد الالكتروني',
         'password' => 'كلمة المرور',
         'roles' => 'الصلاحيات',
+        'department_initiatives' => 'مبادرات القسم',
+        'performance_index' => 'مؤشر الأداء',
     ],
 
 ];

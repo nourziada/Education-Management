@@ -24,6 +24,14 @@ class CreateStrategicsTable extends Migration
             $table->string('measurement',500);
             $table->string('management');
             $table->string('department');
+
+
+            $table->string('department_initiatives',500);
+            $table->string('performance_index',500);
+            $table->string('executing_agency',255);
+            $table->string('supporting_body',255);
+
+
             $table->string('is_confirmed')->default(0);
             $table->string('is_deleted')->default(0);
             $table->string('status')->default(1);

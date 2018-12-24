@@ -4,7 +4,7 @@
 <!-- begin::Head -->
 <head>
     <meta charset="utf-8" />
-    <title>ادارة التخطيط والتنظيم | تسجيل الدخول - الاشتراك</title>
+    <title>تخـطـيـطـا.تـك | تسجيل الدخول - تسجيل مستخدم</title>
     <meta name="description" content="Latest updates and statistic charts">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
 
@@ -48,7 +48,7 @@
             <div class="m-login__container">
                 <div class="m-login__logo">
                     <a href="{{ route('index') }}">
-                        <img class="img-fluid" src="{{ asset('dashboard/assets/app/media/img/logos/logo1.png') }}">
+                        <img class="img-fluid" src="{{ asset('dashboard/assets/app/media/img/logos/logo22.png') }}">
                     </a>
                 </div>
                 <div class="m-login__signin">
@@ -83,7 +83,7 @@
                 </div>
                 <div class="m-login__signup">
                     <div class="m-login__head">
-                        <h3 class="m-login__title">تسجيل الاشتراك</h3>
+                        <h3 class="m-login__title">تسجيل مستخدم جديد</h3>
                         <div class="m-login__desc">ادخل معلوماتك كاملة لإتمام عملية التسجيل:</div>
                     </div>
                     <form class="m-login__form m-form" action="{{ route('register') }}" method="POST">
@@ -102,7 +102,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group m-form__group">
-                                    <input class="form-control m-input" type="text" placeholder="اسم المستدخم" name="user_name" required autocomplete="off">
+                                    <input class="form-control m-input" type="text" placeholder="اسم المستخدم" name="user_name" required autocomplete="off">
                                 </div>
                             </div>
                             <div class="col-lg-6 d-none" id="is-management">

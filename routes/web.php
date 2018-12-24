@@ -100,6 +100,15 @@ Route::prefix('system-dashboard')->group(function() {
     Route::get('/','User\HomeController@index')->name('dashboard.index');
 
     /*
+   |--------------------------------------------------------------------------
+   | Profile Routes
+   |--------------------------------------------------------------------------
+   */
+    Route::get('/profile' ,'User\HomeController@getProfileData')->name('show.profile');
+    Route::post('/profile/update' ,'User\HomeController@updateProfileData')->name('update.profile');
+
+
+    /*
     |--------------------------------------------------------------------------
     | Password Routes
     |--------------------------------------------------------------------------

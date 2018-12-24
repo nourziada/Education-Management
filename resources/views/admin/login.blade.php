@@ -4,7 +4,7 @@
 <!-- begin::Head -->
 <head>
     <meta charset="utf-8" />
-    <title>ادارة التخطيط والتنظيم | تسجيل الدخول لوحة التحكم</title>
+    <title>تخـطـيـطـا.تـك | تسجيل الدخول</title>
     <meta name="description" content="Latest updates and statistic charts">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
 
@@ -46,7 +46,7 @@
             <div class="m-login__container">
                 <div class="m-login__logo">
                     <a href="{{ route('index') }}">
-                        <img class="img-fluid" src="{{ asset('dashboard/assets/app/media/img/logos/logo1.png') }}">
+                        <img class="img-fluid" src="{{ asset('dashboard/assets/app/media/img/logos/logo22.png') }}">
                     </a>
                 </div>
                 <div class="m-login__signin">

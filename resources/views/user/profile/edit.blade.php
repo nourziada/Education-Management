@@ -11,7 +11,7 @@
             <div class="m-subheader ">
                 <div class="d-flex align-items-center">
                     <div class="mr-auto">
-                        <h3 class="m-subheader__title ">ىعديل بيانات نموذج swat</h3>
+                        <h3 class="m-subheader__title ">تحديث بيانات الملف الشخصي</h3>
                     </div>
 
                 </div>
@@ -34,51 +34,48 @@
 													<i class="la la-gear"></i>
 												</span>
                                         <h3 class="m-portlet__head-text">
-                                            ىعديل بيانات نموذج swat
+                                            تحديث بيانات الملف الشخصي
                                         </h3>
                                     </div>
                                 </div>
                             </div>
 
                             <!--begin::Form-->
-                            <form class="m-form m-form--fit m-form--label-align-right" action="{{route('swat.update',$data->id)}}" method="POST">
+                            <form class="m-form m-form--fit m-form--label-align-right" action="{{route('update.profile')}}" method="POST">
 
                                 {{ csrf_field() }}
-                                {{ method_field('PATCH') }}
 
                                 <div class="m-portlet__body">
-                                    <div class="form-group m-form__group">
-                                        <label for="operational_plan_id">اسم الخطة التشغيلية المدخلة</label>
-                                        <select class="form-control m-input" id="operational_plan_id" name="operational_plan_id" required>
-                                            @forelse($operationals as $op)
-                                                <option value="{{ $op->id }}" @if($data->operational_plan_id == $op->id) selected @endif>{{ $op->plane_title }}</option>
-                                            @empty
-                                            @endforelse
-                                        </select>
-                                    </div>
-
-
-
 
                                     <div class="form-group m-form__group">
-                                        <label for="strong">نقاط القوة</label>
-                                        <textarea class="form-control m-input m-input--square" name="strong" placeholder="أدخل نقاط القوة" required>{{ $data->strong }}</textarea>
+                                        <label for="name">الاسم رباعي</label>
+                                        <input type="text" class="form-control m-input m-input--square"
+                                               value="{{ $user->name }}" name="name" id="name"  placeholder="" required>
                                     </div>
 
 
                                     <div class="form-group m-form__group">
-                                        <label for="week">نقاط الضعف</label>
-                                        <textarea class="form-control m-input m-input--square" name="week" placeholder="أدخل نقاط الضعف " required>{{ $data->week }}</textarea>
+                                        <label for="email">البريد الالكتروني</label>
+                                        <input type="email" class="form-control m-input m-input--square"
+                                               value="{{ $user->email }}" name="email" id="email"  placeholder="" required>
                                     </div>
 
                                     <div class="form-group m-form__group">
-                                        <label for="opportunities">الفرص</label>
-                                        <textarea class="form-control m-input m-input--square" name="opportunities" placeholder="أدخل الفرص " required>{{ $data->opportunities }}</textarea>
+                                        <label for="mobile">رقم الجوال</label>
+                                        <input type="text" class="form-control m-input m-input--square"
+                                               value="{{ $user->mobile }}" name="mobile" id="mobile"  placeholder="" required>
                                     </div>
 
                                     <div class="form-group m-form__group">
-                                        <label for="threats">التهديدات</label>
-                                        <textarea class="form-control m-input m-input--square" name="threats" placeholder="أدخل التهديدات " required>{{ $data->threats }}</textarea>
+                                        <label for="phone">رقم هاتف العمل</label>
+                                        <input type="text" class="form-control m-input m-input--square"
+                                               value="{{ $user->phone }}" name="phone" id="phone"  placeholder="" required>
+                                    </div>
+
+                                    <div class="form-group m-form__group">
+                                        <label for="civil_registry">السجل المدني</label>
+                                        <input type="text" class="form-control m-input m-input--square"
+                                               value="{{ $user->civil_registry }}" name="civil_registry" id="civil_registry"  placeholder="" required>
                                     </div>
 
 

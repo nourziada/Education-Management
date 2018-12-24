@@ -59,10 +59,10 @@
 
 
                                     <div class="form-group m-form__group">
-                                        <label for="initiatives">المبادرات</label>
+                                        <label for="initiatives">المبادرات الوزارية المرتبطة</label>
                                         <select class="form-control m-input" id="initiatives" name="initiatives" required>
                                             @forelse($initiatives as $ini)
-                                                <option value="{{ $ini->id }}">{{ $ini->name }}</option>
+                                                <option value="{{ $ini->id }}" @if($data->initiatives == $ini->id) selected @endif>{{ $ini->name }}</option>
                                             @empty
                                             @endforelse
                                         </select>
@@ -79,9 +79,54 @@
                                         <label for="measurement">مؤشر قياس الأداء</label>
                                         <select class="form-control m-input" id="measurement" name="measurement" required>
                                             @forelse($measurements as $meas)
-                                                <option value="{{ $meas->id }}">{{ $meas->name }}</option>
+                                                <option value="{{ $meas->id }}" @if($data->measurement == $meas->id) selected @endif>{{ $meas->name }}</option>
                                             @empty
                                             @endforelse
+                                        </select>
+                                    </div>
+
+
+                                    <div class="form-group m-form__group">
+                                        <label for="department_initiatives">مبادرات القسم</label>
+                                        <textarea class="form-control m-input m-input--square" name="department_initiatives" placeholder="أدخل مبادرات القسم" required>{{ $data->department_initiatives }}</textarea>
+                                    </div>
+
+                                    <div class="form-group m-form__group">
+                                        <label for="performance_index">مؤشر الأداء</label>
+                                        <textarea class="form-control m-input m-input--square" name="performance_index" placeholder="أدخل مؤشر الأداء" required>{{ $data->performance_index }}</textarea>
+                                    </div>
+
+
+                                    <div class="form-group m-form__group">
+                                        <label for="executing_agency">الجهة المنفذة</label>
+                                        <select class="form-control m-input" id="executing_agency" name="executing_agency" required>
+
+
+                                            {{-- Code Here --}}
+                                            @php $managements = \App\Management::get(); @endphp
+                                            @forelse($managements as $manag)
+                                                <option value="{{ $manag->name }}" @if($data->executing_agency == $manag->name) selected @endif>{{ $manag->name }}</option>
+                                            @empty
+                                            @endforelse
+
+
+                                        </select>
+                                    </div>
+
+
+                                    <div class="form-group m-form__group">
+                                        <label for="supporting_body">الجهة المساندة</label>
+                                        <select class="form-control m-input" id="supporting_body" name="supporting_body" required>
+
+
+                                            {{-- Code Here --}}
+                                            @php $managements = \App\Management::get(); @endphp
+                                            @forelse($managements as $manag)
+                                                <option value="{{ $manag->name }}" @if($data->supporting_body == $manag->name) selected @endif>{{ $manag->name }}</option>
+                                            @empty
+                                            @endforelse
+
+
                                         </select>
                                     </div>
 

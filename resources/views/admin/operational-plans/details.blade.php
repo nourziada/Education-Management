@@ -160,41 +160,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="m-timeline-3__item m-timeline-3__item--warning">
-                                                    <div class="m-timeline-3__item-desc">
-                                                    <span class="m-timeline-3__item-user-name">
-                                                        <span
-                                                                class="m-link m-link--metal m-timeline-3__item-link">
-                                                            الأهداف التفصيلية :
-                                                        </span>
-                                                    </span>
-                                                        <br>
-                                                        <span class="m-timeline-3__item-text">
-                                                        {{ $data->detailed_objectives }}
-                                                    </span>
-                                                    </div>
-                                                </div>
 
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="m-timeline-3__item m-timeline-3__item--brand">
-                                                    <div class="m-timeline-3__item-desc">
-                                                <span class="m-timeline-3__item-user-name">
-                                                    <span class="m-link m-link--metal m-timeline-3__item-link">
-                                                        مؤشرات الأداء التفصيلية:
-                                                    </span>
-                                                </span>
-                                                        <br>
-                                                        <span class="m-timeline-3__item-text">
-                                                    {{ $data->detailed_indicators }}
-                                                </span>
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <div class="col-md-6">
                                                 <div class="m-timeline-3__item m-timeline-3__item--success">
                                                     <div class="m-timeline-3__item-desc">
@@ -218,6 +184,48 @@
                                                 </div>
 
                                             </div>
+
+
+
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="col-md-6">
+                                                <div class="m-timeline-3__item m-timeline-3__item--warning">
+                                                    <div class="m-timeline-3__item-desc">
+                                                    <span class="m-timeline-3__item-user-name">
+                                                        <span
+                                                                class="m-link m-link--metal m-timeline-3__item-link">
+                                                            الأهداف التفصيلية :
+                                                        </span>
+                                                    </span>
+                                                        <br>
+                                                        <span class="m-timeline-3__item-text">
+                                                        {{ $data->detailed_objectives }}
+                                                    </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                <div class="m-timeline-3__item m-timeline-3__item--brand">
+                                                    <div class="m-timeline-3__item-desc">
+                                                <span class="m-timeline-3__item-user-name">
+                                                    <span class="m-link m-link--metal m-timeline-3__item-link">
+                                                        مؤشرات الأداء التفصيلية:
+                                                    </span>
+                                                </span>
+                                                        <br>
+                                                        <span class="m-timeline-3__item-text">
+                                                    {{ $data->detailed_indicators }}
+                                                </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
 
                                         <div class="row">
@@ -380,60 +388,6 @@
                                             </div>
                                         </div>
 
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="m-timeline-3__item m-timeline-3__item--brand">
-                                                    <div class="m-timeline-3__item-desc">
-                                                <span class="m-timeline-3__item-user-name">
-                                                    <span class="m-link m-link--metal m-timeline-3__item-link">
-                                                        رقم المبادرة الوزارية المتأثرة:
-                                                    </span>
-                                                </span>
-                                                        <br>
-                                                        <span class="m-timeline-3__item-text">
-                                                    {{ $data->ministerial_number }}
-                                                </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="m-timeline-3__item m-timeline-3__item--success">
-                                                    <div class="m-timeline-3__item-desc">
-                                                    <span class="m-timeline-3__item-user-name">
-                                                        <span
-                                                                class="m-link m-link--metal m-timeline-3__item-link">
-                                                            رقم المؤشر الاستراتيجي المتأثر :
-                                                        </span>
-                                                    </span>
-                                                        <br>
-                                                        <span class="m-timeline-3__item-text">
-                                                         {{ $data->strategic_number }}
-
-                                                    </span>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="m-timeline-3__item m-timeline-3__item--info">
-                                                    <div class="m-timeline-3__item-desc">
-                                                <span class="m-timeline-3__item-user-name">
-                                                    <span class="m-link m-link--metal m-timeline-3__item-link">
-                                                        رقم المؤشر التفصيلي المتأثر:
-                                                    </span>
-                                                </span>
-                                                        <br>
-                                                        <span class="m-timeline-3__item-text">
-                                                    {{ $data->detailed_number }}
-                                                </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
 
 
 

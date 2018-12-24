@@ -8,9 +8,9 @@
     <meta charset="utf-8"/>
 
     @if(Auth::user()->admin == 1)
-        <title>ادارة التخطيط والتنظيم | لوحة تحكم النظام</title>
+    <title>تخـطـيـطـا.تـك | لوحة تحكم النظام</title>
     @else
-        <title>ادارة التخطيط والتنظيم | لوحة التحكم</title>
+    <title>تخـطـيـطـا.تـك | لوحة التحكم</title>
     @endif
     <meta name="description" content="Latest updates and statistic charts">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
@@ -73,7 +73,7 @@
                             @else
                                 <a href="{{ route('dashboard.index') }}" class="m-brand__logo-wrapper">
                             @endif
-                                <img alt="" src="{{ asset('dashboard/assets/app/media/img/logos/logo1.png') }}"/>
+                                <img alt="" src="{{ asset('dashboard/assets/app/media/img/logos/logo22.png') }}"/>
                             </a>
                         </div>
                         <div class="m-stack__item m-stack__item--middle m-brand__tools">
@@ -190,6 +190,17 @@
                                                         {{--</a>--}}
                                                         {{--</li>--}}
 
+                                                        @if(Auth::user()->admin == 1)
+
+                                                        @else
+                                                            <li class="m-nav__item">
+                                                                <a href="{{ route('show.profile') }}" class="m-nav__link">
+                                                                    <i class="m-nav__link-icon flaticon-lifebuoy"></i>
+                                                                    <span class="m-nav__link-text">تحديث بيانات الملف الشخصي</span>
+                                                                </a>
+                                                            </li>
+                                                        @endif
+
                                                         <li class="m-nav__item">
                                                             <a href="{{ route('show.password') }}" class="m-nav__link">
                                                                 <i class="m-nav__link-icon flaticon-lifebuoy"></i>
@@ -235,7 +246,7 @@
             <div class="m-stack m-stack--flex-tablet-and-mobile m-stack--ver m-stack--desktop">
                 <div class="m-stack__item m-stack__item--left m-stack__item--middle m-stack__item--last">
 							<span class="m-footer__copyright">
-								جميع الحقوق محفوظة لإدارة التعليم
+								جميع الحقوق محفوظة لتقنية المعلومات بالنماص
 
 							</span>
                 </div>

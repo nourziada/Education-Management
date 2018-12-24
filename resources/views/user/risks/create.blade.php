@@ -61,13 +61,13 @@
 
                                     <div class="form-group m-form__group" >
                                         <label for="name">اسم الخطر</label>
-                                        <input type="text" class="form-control m-input m-input--square" name="name" id="name"  placeholder="أدخل اسم الخطر رجاءُ" required>
+                                        <input type="text" class="form-control m-input m-input--square" name="name" id="name"  placeholder="أدخل اسم الخطر  " required>
                                     </div>
 
 
                                     <div class="form-group m-form__group">
                                         <label for="description">وصف الخطر المحتمل</label>
-                                        <textarea class="form-control m-input m-input--square" name="description" placeholder="أدخل وصف الخطر المحتمل رجاءً" required></textarea>
+                                        <textarea class="form-control m-input m-input--square" name="description" placeholder="أدخل وصف الخطر المحتمل" required></textarea>
                                     </div>
 
 
@@ -84,7 +84,7 @@
 
                                     <div class="form-group m-form__group">
                                         <label for="protection">عناصر الوقاية من الخطر</label>
-                                        <textarea class="form-control m-input m-input--square" name="protection" placeholder="أدخل عناصر الوقاية من الخطر رجاءً" required></textarea>
+                                        <textarea class="form-control m-input m-input--square" name="protection" placeholder="أدخل عناصر الوقاية من الخطر " required></textarea>
                                     </div>
 
 
@@ -101,19 +101,19 @@
 
                                     <div class="form-group m-form__group">
                                         <label for="responsible">الجهة المسؤولة عن إجراءات منع الخطر</label>
-                                        <textarea class="form-control m-input m-input--square" name="responsible" placeholder="أدخل الجهة المسؤولة عن إجراءات منع الخطر  رجاءً" required></textarea>
+                                        <textarea class="form-control m-input m-input--square" name="responsible" placeholder="أدخل الجهة المسؤولة عن إجراءات منع الخطر   " required></textarea>
                                     </div>
 
 
                                     <div class="form-group m-form__group">
                                         <label for="treatment">عناصر معالجة وانهاء الخطر</label>
-                                        <textarea class="form-control m-input m-input--square" name="treatment" placeholder="أدخل عناصر معالجة وانهاء الخطر  رجاءً" required></textarea>
+                                        <textarea class="form-control m-input m-input--square" name="treatment" placeholder="أدخل عناصر معالجة وانهاء الخطر   " required></textarea>
                                     </div>
 
 
                                     <div class="form-group m-form__group">
                                         <label for="end">الجهة المسؤولة عن إجراءات انهاء الخطر</label>
-                                        <textarea class="form-control m-input m-input--square" name="end" placeholder="أدخل الجهة المسؤولة عن إجراءات انهاء الخطر رجاءً" required></textarea>
+                                        <textarea class="form-control m-input m-input--square" name="end" placeholder="أدخل الجهة المسؤولة عن إجراءات انهاء الخطر  " required></textarea>
                                     </div>
 
 

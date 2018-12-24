@@ -92,6 +92,8 @@ class StrategicController extends Controller
     {
         $this->validate($request,[
             'target' => 'required|max:500',
+            'department_initiatives' => 'required|max:500',
+            'performance_index' => 'required|max:500',
         ]);
 
         $data = new Strategic;
@@ -104,6 +106,10 @@ class StrategicController extends Controller
         $data->measurement = $request->measurement;
         $data->management = Auth::user()->management;
         $data->department = Auth::user()->department;
+        $data->department_initiatives = $request->department_initiatives;
+        $data->performance_index = $request->performance_index;
+        $data->executing_agency = $request->executing_agency;
+        $data->supporting_body = $request->supporting_body;
         $data->save();
 
         Session::flash('success' , 'تمت اضافة الخطة الاستراتيجية بنجاح ، وبإنتظار تفعيل مدير الموقع');
@@ -161,6 +167,8 @@ class StrategicController extends Controller
     {
         $this->validate($request,[
             'target' => 'required|max:500',
+            'department_initiatives' => 'required|max:500',
+            'performance_index' => 'required|max:500',
         ]);
 
         $data = Strategic::find($id);
@@ -172,6 +180,10 @@ class StrategicController extends Controller
         $data->measurement = $request->measurement;
         $data->management = Auth::user()->management;
         $data->department = Auth::user()->department;
+        $data->department_initiatives = $request->department_initiatives;
+        $data->performance_index = $request->performance_index;
+        $data->executing_agency = $request->executing_agency;
+        $data->supporting_body = $request->supporting_body;
         $data->status = 2;
         $data->is_confirmed = 0;
         $data->save();

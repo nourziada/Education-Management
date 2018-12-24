@@ -127,9 +127,9 @@ class OperationalPlanes extends Controller
         $data->main_implementing = $request->main_implementing;
         $data->sub_implementing = $request->sub_implementing;
         $data->cost = $request->cost;
-        $data->ministerial_number = $request->ministerial_number;
-        $data->strategic_number = $request->strategic_number;
-        $data->detailed_number = $request->detailed_number;
+        $data->ministerial_number = "";
+        $data->strategic_number = "";
+        $data->detailed_number = "";
 
         $data->user_id = Auth::user()->id;
         $data->management = Auth::user()->management;
@@ -228,9 +228,9 @@ class OperationalPlanes extends Controller
         $data->main_implementing = $request->main_implementing;
         $data->sub_implementing = $request->sub_implementing;
         $data->cost = $request->cost;
-        $data->ministerial_number = $request->ministerial_number;
-        $data->strategic_number = $request->strategic_number;
-        $data->detailed_number = $request->detailed_number;
+//        $data->ministerial_number = $request->ministerial_number;
+//        $data->strategic_number = $request->strategic_number;
+//        $data->detailed_number = $request->detailed_number;
 
         $data->status = 2;
         $data->is_confirmed = 0;

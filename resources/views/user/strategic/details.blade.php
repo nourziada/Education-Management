@@ -127,7 +127,7 @@
                                                     <span class="m-timeline-3__item-user-name">
                                                         <span
                                                                 class="m-link m-link--metal m-timeline-3__item-link">
-                                                            المبادرات :
+                                                            المبادرات الوزارية المرتبطة :
                                                         </span>
                                                     </span>
                                                         <br>
@@ -211,7 +211,83 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                           
+
+                                            <div class="col-md-6">
+                                                <div class="m-timeline-3__item m-timeline-3__item--success">
+                                                    <div class="m-timeline-3__item-desc">
+                                                    <span class="m-timeline-3__item-user-name">
+                                                        <span
+                                                                class="m-link m-link--metal m-timeline-3__item-link">
+                                                            مبادرات القسم :
+                                                        </span>
+                                                    </span>
+                                                        <br>
+                                                        <span class="m-timeline-3__item-text">
+
+                                                            {{ $data->department_initiatives }}
+                                                    </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="m-timeline-3__item m-timeline-3__item--info">
+                                                    <div class="m-timeline-3__item-desc">
+                                                <span class="m-timeline-3__item-user-name">
+                                                    <span class="m-link m-link--metal m-timeline-3__item-link">
+                                                        مؤشر الأداء:
+                                                    </span>
+                                                </span>
+                                                        <br>
+                                                        <span class="m-timeline-3__item-text">
+
+                                                            {{ $data->performance_index }}
+                                                </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="m-timeline-3__item m-timeline-3__item--warning">
+                                                    <div class="m-timeline-3__item-desc">
+                                                    <span class="m-timeline-3__item-user-name">
+                                                        <span
+                                                                class="m-link m-link--metal m-timeline-3__item-link">
+                                                            الجهة المنفذة :
+                                                        </span>
+                                                    </span>
+                                                        <br>
+                                                        <span class="m-timeline-3__item-text">
+                                                        {{ $data->executing_agency }}
+                                                    </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="col-md-6">
+                                                <div class="m-timeline-3__item m-timeline-3__item--success">
+                                                    <div class="m-timeline-3__item-desc">
+                                                    <span class="m-timeline-3__item-user-name">
+                                                        <span
+                                                                class="m-link m-link--metal m-timeline-3__item-link">
+                                                            الجهة المساندة :
+                                                        </span>
+                                                    </span>
+                                                        <br>
+                                                        <span class="m-timeline-3__item-text">
+
+                                                            {{ $data->supporting_body }}
+                                                    </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
                                         </div>
 
 

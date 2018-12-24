@@ -61,23 +61,23 @@
 
                                     <div class="form-group m-form__group">
                                         <label for="strong">نقاط القوة</label>
-                                        <textarea class="form-control m-input m-input--square" name="strong" placeholder="أدخل نقاط القوة رجاءً" required></textarea>
+                                        <textarea class="form-control m-input m-input--square" name="strong" placeholder="أدخل نقاط القوة " required></textarea>
                                     </div>
 
 
                                     <div class="form-group m-form__group">
                                         <label for="week">نقاط الضعف</label>
-                                        <textarea class="form-control m-input m-input--square" name="week" placeholder="أدخل نقاط الضعف رجاءً" required></textarea>
+                                        <textarea class="form-control m-input m-input--square" name="week" placeholder="أدخل نقاط الضعف " required></textarea>
                                     </div>
 
                                     <div class="form-group m-form__group">
                                         <label for="opportunities">الفرص</label>
-                                        <textarea class="form-control m-input m-input--square" name="opportunities" placeholder="أدخل الفرص رجاءً" required></textarea>
+                                        <textarea class="form-control m-input m-input--square" name="opportunities" placeholder="أدخل الفرص " required></textarea>
                                     </div>
 
                                     <div class="form-group m-form__group">
                                         <label for="threats">التهديدات</label>
-                                        <textarea class="form-control m-input m-input--square" name="threats" placeholder="أدخل التهديدات رجاءً" required></textarea>
+                                        <textarea class="form-control m-input m-input--square" name="threats" placeholder="أدخل التهديدات " required></textarea>
                                     </div>
 
 

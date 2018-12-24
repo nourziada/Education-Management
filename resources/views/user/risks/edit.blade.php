@@ -69,7 +69,7 @@
 
                                     <div class="form-group m-form__group">
                                         <label for="description">وصف الخطر المحتمل</label>
-                                        <textarea class="form-control m-input m-input--square" name="description" placeholder="أدخل وصف الخطر المحتمل رجاءً" required>{{ $data->description }}</textarea>
+                                        <textarea class="form-control m-input m-input--square" name="description" placeholder="أدخل وصف الخطر المحتمل  " required>{{ $data->description }}</textarea>
                                     </div>
 
 
@@ -86,7 +86,7 @@
 
                                     <div class="form-group m-form__group">
                                         <label for="protection">عناصر الوقاية من الخطر</label>
-                                        <textarea class="form-control m-input m-input--square" name="protection" placeholder="أدخل عناصر الوقاية من الخطر رجاءً" required>{{ $data->protection }}</textarea>
+                                        <textarea class="form-control m-input m-input--square" name="protection" placeholder="أدخل عناصر الوقاية من الخطر  " required>{{ $data->protection }}</textarea>
                                     </div>
 
 
@@ -103,19 +103,19 @@
 
                                     <div class="form-group m-form__group">
                                         <label for="responsible">الجهة المسؤولة عن إجراءات منع الخطر</label>
-                                        <textarea class="form-control m-input m-input--square" name="responsible" placeholder="أدخل الجهة المسؤولة عن إجراءات منع الخطر  رجاءً" required>{{ $data->responsible }}</textarea>
+                                        <textarea class="form-control m-input m-input--square" name="responsible" placeholder="أدخل الجهة المسؤولة عن إجراءات منع الخطر   " required>{{ $data->responsible }}</textarea>
                                     </div>
 
 
                                     <div class="form-group m-form__group">
                                         <label for="treatment">عناصر معالجة وانهاء الخطر</label>
-                                        <textarea class="form-control m-input m-input--square" name="treatment" placeholder="أدخل عناصر معالجة وانهاء الخطر  رجاءً" required>{{ $data->treatment }}</textarea>
+                                        <textarea class="form-control m-input m-input--square" name="treatment" placeholder="أدخل عناصر معالجة وانهاء الخطر   " required>{{ $data->treatment }}</textarea>
                                     </div>
 
 
                                     <div class="form-group m-form__group">
                                         <label for="end">الجهة المسؤولة عن إجراءات انهاء الخطر</label>
-                                        <textarea class="form-control m-input m-input--square" name="end" placeholder="أدخل الجهة المسؤولة عن إجراءات انهاء الخطر رجاءً" required>{{ $data->end }}</textarea>
+                                        <textarea class="form-control m-input m-input--square" name="end" placeholder="أدخل الجهة المسؤولة عن إجراءات انهاء الخطر  " required>{{ $data->end }}</textarea>
                                     </div>
 
 

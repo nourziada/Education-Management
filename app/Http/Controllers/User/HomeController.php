@@ -19,7 +19,31 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('isUserActive',['except' => ['index','showPassword','changePassword']]);
+        $this->middleware('isUserActive',['except' => ['index','showPassword','changePassword','getProfileData','updateProfileData']]);
+    }
+
+    /*
+     * Methods For Profile Update
+     */
+
+    public function updateProfileData(Request $request)
+    {
+        $user = Auth::user();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->mobile = $request->mobile;
+        $user->phone = $request->phone;
+        $user->civil_registry = $request->civil_registry;
+        $user->save();
+
+        Session::flash('success' , 'تم تحديث بيانات ملفك الشخصي بنجاح');
+        return redirect()->back();
+    }
+
+    public function getProfileData()
+    {
+        $user = Auth::user();
+        return view('user.profile.edit',compact('user'));
     }
 
     /*

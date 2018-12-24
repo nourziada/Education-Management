@@ -51,31 +51,31 @@
                                     <div class="form-group m-form__group" >
                                         <label for="name">اسم الباحث رباعي</label>
                                         <input type="text" class="form-control m-input m-input--square"
-                                               value="{{ $data->name }}" name="name" id="name"  placeholder="أدخل اسم الباحث رباعي رجاءُ" required>
+                                               value="{{ $data->name }}" name="name" id="name"  placeholder="أدخل اسم الباحث رباعي  " required>
                                     </div>
 
                                     <div class="form-group m-form__group" >
                                         <label for="id_number">رقم السجل المدني</label>
                                         <input type="text" class="form-control m-input m-input--square"
-                                               value="{{ $data->id_number }}" name="id_number" id="id_number"  placeholder="أدخل رقم السجل المدني رجاءُ" required>
+                                               value="{{ $data->id_number }}" name="id_number" id="id_number"  placeholder="أدخل رقم السجل المدني  " required>
                                     </div>
 
                                     <div class="form-group m-form__group" >
                                         <label for="work">جهة العمل</label>
                                         <input type="text" class="form-control m-input m-input--square"
-                                               value="{{ $data->work }}" name="work" id="work"  placeholder="أدخل جهة العمل رجاءُ" required>
+                                               value="{{ $data->work }}" name="work" id="work"  placeholder="أدخل جهة العمل  " required>
                                     </div>
 
                                     <div class="form-group m-form__group" >
                                         <label for="mobile">رقم الجوال</label>
                                         <input type="text" class="form-control m-input m-input--square"
-                                               value="{{ $data->mobile }}" name="mobile" id="mobile"  placeholder="أدخل رقم الجوال رجاءُ" required>
+                                               value="{{ $data->mobile }}" name="mobile" id="mobile"  placeholder="أدخل رقم الجوال  " required>
                                     </div>
 
                                     <div class="form-group m-form__group" >
                                         <label for="email">البريد الالكتروني</label>
                                         <input type="email" class="form-control m-input m-input--square"
-                                               value="{{ $data->email }}" name="email" id="email"  placeholder="أدخل البريد الالكتروني رجاءُ" required>
+                                               value="{{ $data->email }}" name="email" id="email"  placeholder="أدخل البريد الالكتروني  " required>
                                     </div>
 
 
@@ -94,25 +94,25 @@
                                     <div class="form-group m-form__group" >
                                         <label for="uni">الجامعة</label>
                                         <input type="text" class="form-control m-input m-input--square"
-                                               value="{{ $data->uni }}" name="uni" id="uni"  placeholder="أدخل الجامعة رجاءُ" required>
+                                               value="{{ $data->uni }}" name="uni" id="uni"  placeholder="أدخل الجامعة  " required>
                                     </div>
 
                                     <div class="form-group m-form__group" >
                                         <label for="college">الكلية</label>
                                         <input type="text" class="form-control m-input m-input--square"
-                                               value="{{ $data->college }}" name="college" id="college"  placeholder="أدخل الكلية رجاءُ" required>
+                                               value="{{ $data->college }}" name="college" id="college"  placeholder="أدخل الكلية  " required>
                                     </div>
 
                                     <div class="form-group m-form__group" >
                                         <label for="specialization">التخصص</label>
                                         <input type="text" class="form-control m-input m-input--square"
-                                               value="{{ $data->specialization }}" name="specialization" id="specialization"  placeholder="أدخل التخصص رجاءُ" required>
+                                               value="{{ $data->specialization }}" name="specialization" id="specialization"  placeholder="أدخل التخصص  " required>
                                     </div>
 
                                     <div class="form-group m-form__group" >
                                         <label for="search_title">عنوان البحث</label>
                                         <input type="text" class="form-control m-input m-input--square"
-                                               value="{{ $data->search_title }}" name="search_title" id="search_title"  placeholder="أدخل عنوان البحث رجاءُ" required>
+                                               value="{{ $data->search_title }}" name="search_title" id="search_title"  placeholder="أدخل عنوان البحث  " required>
                                     </div>
 
                                     <div class="form-group m-form__group">
@@ -129,7 +129,7 @@
                                     <div class="form-group m-form__group @if($data->search_goal != 'ماجستير' && $data->search_goal != 'دكتوراه')  @else d-none @endif" id="search_goal_div">
                                         <label for="search_goal_other">أدخل الهدف من البحث</label>
                                         <input type="text" class="form-control m-input m-input--square"
-                                               @if($data->search_goal != 'ماجستير' && $data->search_goal != 'دكتوراه') value="{{ $data->search_goal }}" @endif name="search_goal_other" id="search_goal_other"  placeholder=" أدخل الهدف من البحث رجاءُ">
+                                               @if($data->search_goal != 'ماجستير' && $data->search_goal != 'دكتوراه') value="{{ $data->search_goal }}" @endif name="search_goal_other" id="search_goal_other"  placeholder=" أدخل الهدف من البحث  ">
                                     </div>
 
                                     <div class="form-group m-form__group">
@@ -151,36 +151,36 @@
                                     <div class="form-group m-form__group">
                                         <label for="authority">الجهة المشرفة</label>
                                         <input type="text" class="form-control m-input m-input--square"
-                                               value="{{ $data->authority }}" name="authority" id="authority"  placeholder=" أدخل الجهة المشرفة رجاءُ">
+                                               value="{{ $data->authority }}" name="authority" id="authority"  placeholder=" أدخل الجهة المشرفة  ">
                                     </div>
 
                                     <div class="form-group m-form__group">
                                         <label for="authority_address">عنوان الجهة</label>
                                         <input type="text" class="form-control m-input m-input--square"
-                                               value="{{ $data->authority_address }}" name="authority_address" id="authority_address"  placeholder=" أدخل عنوان الجهة رجاءُ">
+                                               value="{{ $data->authority_address }}" name="authority_address" id="authority_address"  placeholder=" أدخل عنوان الجهة  ">
                                     </div>
 
                                     <div class="form-group m-form__group">
                                         <label for="target">الجهة المستفيدة</label>
                                         <input type="text" class="form-control m-input m-input--square"
-                                               value="{{ $data->target }}" name="target" id="target"  placeholder=" أدخل الجهة المستفيدة رجاءُ">
+                                               value="{{ $data->target }}" name="target" id="target"  placeholder=" أدخل الجهة المستفيدة  ">
                                     </div>
 
                                     <div class="form-group m-form__group">
                                         <label for="search_tool">اداة البحث</label>
                                         <input type="text" class="form-control m-input m-input--square"
-                                               value="{{ $data->search_tool }}" name="search_tool" id="search_tool"  placeholder=" أدخل اداة البحث رجاءُ">
+                                               value="{{ $data->search_tool }}" name="search_tool" id="search_tool"  placeholder=" أدخل اداة البحث  ">
                                     </div>
 
                                     <div class="form-group m-form__group">
-                                        <label for="search_tool">(المرفقات) ادوات البحث - استبانة</label>
-                                        <input type="file" class="form-control m-input m-input--square" name="search_tools" id="search_tools"  placeholder=" أدخل (المرفقات) ادوات البحث - استبانة رجاءُ">
+                                        <label for="search_tool">ارفق ادوا ت البحث</label>
+                                        <input type="file" class="form-control m-input m-input--square" name="search_tools" id="search_tools"  placeholder=" أرفع المرفقات ">
                                         <p style="color: red;">إذا كنت لا تريد تغييره ، أتركه فارغاً</p>
                                     </div>
 
                                     <div class="form-group m-form__group">
-                                        <label for="letter_approval">(المرفقات) خطاب الموافقة على إجراء البحث</label>
-                                        <input type="file" class="form-control m-input m-input--square" name="letter_approval" id="letter_approval"  placeholder=" أدخل (المرفقات) ادوات البحث - استبانة رجاءُ">
+                                        <label for="letter_approval">ارفق خطاب الموافقة</label>
+                                        <input type="file" class="form-control m-input m-input--square" name="letter_approval" id="letter_approval"  placeholder=" أرفع المرفقات  ">
                                         <p style="color: red;">إذا كنت لا تريد تغييره ، أتركه فارغاً</p>
                                     </div>
 

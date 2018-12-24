@@ -49,27 +49,27 @@
 
                                     <div class="form-group m-form__group" >
                                         <label for="name">اسم الباحث رباعي</label>
-                                        <input type="text" class="form-control m-input m-input--square" name="name" id="name"  placeholder="أدخل اسم الباحث رباعي رجاءُ" required>
+                                        <input type="text" class="form-control m-input m-input--square" name="name" id="name"  placeholder="أدخل اسم الباحث رباعي  " required>
                                     </div>
 
                                     <div class="form-group m-form__group" >
                                         <label for="id_number">رقم السجل المدني</label>
-                                        <input type="text" class="form-control m-input m-input--square" name="id_number" id="id_number"  placeholder="أدخل رقم السجل المدني رجاءُ" required>
+                                        <input type="text" class="form-control m-input m-input--square" name="id_number" id="id_number"  placeholder="أدخل رقم السجل المدني  " required>
                                     </div>
 
                                     <div class="form-group m-form__group" >
                                         <label for="work">جهة العمل</label>
-                                        <input type="text" class="form-control m-input m-input--square" name="work" id="work"  placeholder="أدخل جهة العمل رجاءُ" required>
+                                        <input type="text" class="form-control m-input m-input--square" name="work" id="work"  placeholder="أدخل جهة العمل  " required>
                                     </div>
 
                                     <div class="form-group m-form__group" >
                                         <label for="mobile">رقم الجوال</label>
-                                        <input type="text" class="form-control m-input m-input--square" name="mobile" id="mobile"  placeholder="أدخل رقم الجوال رجاءُ" required>
+                                        <input type="text" class="form-control m-input m-input--square" name="mobile" id="mobile"  placeholder="أدخل رقم الجوال  " required>
                                     </div>
 
                                     <div class="form-group m-form__group" >
                                         <label for="email">البريد الالكتروني</label>
-                                        <input type="email" class="form-control m-input m-input--square" name="email" id="email"  placeholder="أدخل البريد الالكتروني رجاءُ" required>
+                                        <input type="email" class="form-control m-input m-input--square" name="email" id="email"  placeholder="أدخل البريد الالكتروني  " required>
                                     </div>
 
 
@@ -87,22 +87,22 @@
 
                                     <div class="form-group m-form__group" >
                                         <label for="uni">الجامعة</label>
-                                        <input type="text" class="form-control m-input m-input--square" name="uni" id="uni"  placeholder="أدخل الجامعة رجاءُ" required>
+                                        <input type="text" class="form-control m-input m-input--square" name="uni" id="uni"  placeholder="أدخل الجامعة  " required>
                                     </div>
 
                                     <div class="form-group m-form__group" >
                                         <label for="college">الكلية</label>
-                                        <input type="text" class="form-control m-input m-input--square" name="college" id="college"  placeholder="أدخل الكلية رجاءُ" required>
+                                        <input type="text" class="form-control m-input m-input--square" name="college" id="college"  placeholder="أدخل الكلية  " required>
                                     </div>
 
                                     <div class="form-group m-form__group" >
                                         <label for="specialization">التخصص</label>
-                                        <input type="text" class="form-control m-input m-input--square" name="specialization" id="specialization"  placeholder="أدخل التخصص رجاءُ" required>
+                                        <input type="text" class="form-control m-input m-input--square" name="specialization" id="specialization"  placeholder="أدخل التخصص  " required>
                                     </div>
 
                                     <div class="form-group m-form__group" >
                                         <label for="search_title">عنوان البحث</label>
-                                        <input type="text" class="form-control m-input m-input--square" name="search_title" id="search_title"  placeholder="أدخل عنوان البحث رجاءُ" required>
+                                        <input type="text" class="form-control m-input m-input--square" name="search_title" id="search_title"  placeholder="أدخل عنوان البحث  " required>
                                     </div>
 
                                     <div class="form-group m-form__group">
@@ -118,7 +118,7 @@
 
                                     <div class="form-group m-form__group d-none" id="search_goal_div">
                                         <label for="search_goal_other">أدخل الهدف من البحث</label>
-                                        <input type="text" class="form-control m-input m-input--square" name="search_goal_other" id="search_goal_other"  placeholder=" أدخل الهدف من البحث رجاءُ">
+                                        <input type="text" class="form-control m-input m-input--square" name="search_goal_other" id="search_goal_other"  placeholder=" أدخل الهدف من البحث  ">
                                     </div>
 
                                     <div class="form-group m-form__group">
@@ -133,37 +133,37 @@
 
                                     <div class="form-group m-form__group">
                                         <label for="targets">المستهدفون</label>
-                                        <textarea class="form-control m-input m-input--square" name="targets" placeholder="أدخل المستهدفون رجاءً" required></textarea>
+                                        <textarea class="form-control m-input m-input--square" name="targets" placeholder="أدخل المستهدفون" required></textarea>
                                     </div>
 
                                     <div class="form-group m-form__group">
                                         <label for="authority">الجهة المشرفة</label>
-                                        <input type="text" class="form-control m-input m-input--square" name="authority" id="authority"  placeholder=" أدخل الجهة المشرفة رجاءُ">
+                                        <input type="text" class="form-control m-input m-input--square" name="authority" id="authority"  placeholder=" أدخل الجهة المشرفة  ">
                                     </div>
 
                                     <div class="form-group m-form__group">
                                         <label for="authority_address">عنوان الجهة</label>
-                                        <input type="text" class="form-control m-input m-input--square" name="authority_address" id="authority_address"  placeholder=" أدخل عنوان الجهة رجاءُ">
+                                        <input type="text" class="form-control m-input m-input--square" name="authority_address" id="authority_address"  placeholder=" أدخل عنوان الجهة  ">
                                     </div>
 
                                     <div class="form-group m-form__group">
                                         <label for="target">الجهة المستفيدة</label>
-                                        <input type="text" class="form-control m-input m-input--square" name="target" id="target"  placeholder=" أدخل الجهة المستفيدة رجاءُ">
+                                        <input type="text" class="form-control m-input m-input--square" name="target" id="target"  placeholder=" أدخل الجهة المستفيدة  ">
                                     </div>
 
                                     <div class="form-group m-form__group">
                                         <label for="search_tool">اداة البحث</label>
-                                        <input type="text" class="form-control m-input m-input--square" name="search_tool" id="search_tool"  placeholder=" أدخل اداة البحث رجاءُ">
+                                        <input type="text" class="form-control m-input m-input--square" name="search_tool" id="search_tool"  placeholder=" أدخل اداة البحث  ">
                                     </div>
 
                                     <div class="form-group m-form__group">
-                                        <label for="search_tool">(المرفقات) ادوات البحث - استبانة</label>
-                                        <input type="file" class="form-control m-input m-input--square" name="search_tools" id="search_tools"  placeholder=" أدخل (المرفقات) ادوات البحث - استبانة رجاءُ">
+                                        <label for="search_tool">ارفق - ادوات البحث</label>
+                                        <input type="file" class="form-control m-input m-input--square" name="search_tools" id="search_tools"  placeholder=" ارفع المرفق ">
                                     </div>
 
                                     <div class="form-group m-form__group">
-                                        <label for="letter_approval">(المرفقات) خطاب الموافقة على إجراء البحث</label>
-                                        <input type="file" class="form-control m-input m-input--square" name="letter_approval" id="letter_approval"  placeholder=" أدخل (المرفقات) ادوات البحث - استبانة رجاءُ">
+                                        <label for="letter_approval">ارفق خطاب الموافقة</label>
+                                        <input type="file" class="form-control m-input m-input--square" name="letter_approval" id="letter_approval"  placeholder=" ارفع المرفق ">
                                     </div>
 
 

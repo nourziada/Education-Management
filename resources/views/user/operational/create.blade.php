@@ -57,7 +57,7 @@
 
                                     <div class="form-group m-form__group d-none" id="is_school">
                                         <label for="target">اسم المدرسة</label>
-                                        <input type="text" class="form-control m-input m-input--square" name="school_name" id="school_name"  placeholder="أدخل اسم المدرسة رجاءُ">
+                                        <input type="text" class="form-control m-input m-input--square" name="school_name" id="school_name"  placeholder="أدخل اسم المدرسة  ">
                                     </div>
 
                                     <div class="form-group m-form__group">
@@ -94,18 +94,6 @@
                                         </select>
                                     </div>
 
-
-                                    <div class="form-group m-form__group">
-                                        <label for="detailed_objectives">الأهداف التفصيلية</label>
-                                        <textarea class="form-control m-input m-input--square" name="detailed_objectives" placeholder="أدخل الأهداف التفصيلية رجاءً" required></textarea>
-                                    </div>
-
-                                    <div class="form-group m-form__group">
-                                        <label for="detailed_indicators">مؤشرات الأداء التفصيلية</label>
-                                        <textarea class="form-control m-input m-input--square" name="detailed_indicators" placeholder="أدخل مؤشرات الأداء التفصيلية رجاءً" required></textarea>
-                                    </div>
-
-
                                     <div class="form-group m-form__group">
                                         <label for="initiative_title">عنوان المبادرة الاستراتيجية للإدارة المرتبطة</label>
                                         <select class="form-control m-input" id="initiative_title" name="initiative_title" required>
@@ -122,30 +110,44 @@
 
 
                                     <div class="form-group m-form__group">
+                                        <label for="detailed_objectives">الأهداف التفصيلية</label>
+                                        <textarea class="form-control m-input m-input--square" name="detailed_objectives" placeholder="أدخل الأهداف التفصيلية " required></textarea>
+                                    </div>
+
+                                    <div class="form-group m-form__group">
+                                        <label for="detailed_indicators">مؤشرات الأداء التفصيلية</label>
+                                        <textarea class="form-control m-input m-input--square" name="detailed_indicators" placeholder="أدخل مؤشرات الأداء التفصيلية " required></textarea>
+                                    </div>
+
+
+
+
+
+                                    <div class="form-group m-form__group">
                                         <label for="plane_title">اسم البرنامج</label>
-                                        <input type="text" class="form-control m-input m-input--square" name="plane_title" id="plane_title"  placeholder="أدخل اسم البرنامج رجاءُ" required>
+                                        <input type="text" class="form-control m-input m-input--square" name="plane_title" id="plane_title"  placeholder="أدخل اسم البرنامج  " required>
                                     </div>
 
                                     <div class="form-group m-form__group">
                                         <label for="requirements">المتطلبات</label>
-                                        <textarea class="form-control m-input m-input--square" name="requirements" placeholder="أدخل المتطلبات رجاءً" required></textarea>
+                                        <textarea class="form-control m-input m-input--square" name="requirements" placeholder="أدخل المتطلبات " required></textarea>
                                     </div>
 
                                     <div class="form-group m-form__group">
                                         <label for="targeted">المستهدفون</label>
-                                        <textarea class="form-control m-input m-input--square" name="targeted" placeholder="أدخل المستهدفون رجاءً" required></textarea>
+                                        <textarea class="form-control m-input m-input--square" name="targeted" placeholder="أدخل المستهدفون " required></textarea>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-lg-6" >
                                             <div class="form-group m-form__group">
-                                                <label for="ad_execution_time_from">زمن التنفيذ (من) ميلادي</label>
+                                                <label for="ad_execution_time_from">زمن التنفيذ : من</label>
                                                 <input type="date" class="form-control m-input m-input--square" name="ad_execution_time_from" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group m-form__group">
-                                                <label for="ad_execution_time_to"> زمن التنفيذ (الى) ميلادي</label>
+                                                <label for="ad_execution_time_to"> الى</label>
                                                 <input type="date" class="form-control m-input m-input--square" name="ad_execution_time_to" id="ad_execution_time_to" required>
                                             </div>
                                         </div>
@@ -172,7 +174,7 @@
 
                                     <div class="form-group m-form__group">
                                         <label for="place">مكان التنفيذ</label>
-                                        <input type="text" class="form-control m-input m-input--square" name="place" id="place"  placeholder="أدخل مكان التنفيذ رجاءُ" required>
+                                        <input type="text" class="form-control m-input m-input--square" name="place" id="place"  placeholder="أدخل مكان التنفيذ  " required>
                                     </div>
 
 
@@ -187,39 +189,51 @@
                                                 <option value="{{ $manag->name }}">{{ $manag->name }}</option>
                                             @empty
                                             @endforelse
-                                            
+
 
                                         </select>
                                     </div>
 
                                     <div class="form-group m-form__group">
                                         <label for="sub_implementing">جهات التنفيذ المساندة</label>
-                                        <textarea class="form-control m-input m-input--square" name="sub_implementing" placeholder="أدخل جهات التنفيذ المساندة رجاءً" required></textarea>
+
+                                        <select class="form-control m-input" id="sub_implementing" name="sub_implementing" required>
+
+
+                                            {{-- Code Here --}}
+                                            @php $managements = \App\Management::get(); @endphp
+                                            @forelse($managements as $manag)
+                                                <option value="{{ $manag->name }}">{{ $manag->name }}</option>
+                                            @empty
+                                            @endforelse
+
+
+                                        </select>
                                     </div>
 
 
                                     <div class="form-group m-form__group">
                                         <label for="cost">التكلفة</label>
-                                        <input type="text" class="form-control m-input m-input--square" name="cost" id="cost"  placeholder="أدخل التكلفة رجاءُ" required>
+                                        <input type="text" class="form-control m-input m-input--square" name="cost" id="cost"  placeholder="أدخل التكلفة  " required>
                                     </div>
 
 
-                                    <div class="form-group m-form__group">
-                                        <label for="ministerial_number">رقم المبادرة الوزارية المتأثرة</label>
-                                        <input type="text" class="form-control m-input m-input--square" name="ministerial_number" id="ministerial_number"  placeholder="أدخل رقم المبادرة الوزارية المتأثرة رجاءُ" required>
-                                    </div>
+                                    {{--<div class="form-group m-form__group">--}}
+                                        {{--<label for="ministerial_number">رقم المبادرة الوزارية المتأثرة</label>--}}
+                                        {{--<input type="text" class="form-control m-input m-input--square" name="ministerial_number" id="ministerial_number"  placeholder="أدخل رقم المبادرة الوزارية المتأثرة  " required>--}}
+                                    {{--</div>--}}
 
 
-                                    <div class="form-group m-form__group">
-                                        <label for="strategic_number">رقم المؤشر الاستراتيجي المتأثر </label>
-                                        <input type="text" class="form-control m-input m-input--square" name="strategic_number" id="strategic_number"  placeholder="أدخل رقم المؤشر الاستراتيجي المتأثر  رجاءُ" required>
-                                    </div>
+                                    {{--<div class="form-group m-form__group">--}}
+                                        {{--<label for="strategic_number">رقم المؤشر الاستراتيجي المتأثر </label>--}}
+                                        {{--<input type="text" class="form-control m-input m-input--square" name="strategic_number" id="strategic_number"  placeholder="أدخل رقم المؤشر الاستراتيجي المتأثر   " required>--}}
+                                    {{--</div>--}}
 
 
-                                    <div class="form-group m-form__group">
-                                        <label for="detailed_number">رقم المؤشر التفصيلي المتأثر</label>
-                                        <input type="text" class="form-control m-input m-input--square" name="detailed_number" id="detailed_number"  placeholder="أدخل رقم المؤشر التفصيلي المتأثر رجاءُ" required>
-                                    </div>
+                                    {{--<div class="form-group m-form__group">--}}
+                                        {{--<label for="detailed_number">رقم المؤشر التفصيلي المتأثر</label>--}}
+                                        {{--<input type="text" class="form-control m-input m-input--square" name="detailed_number" id="detailed_number"  placeholder="أدخل رقم المؤشر التفصيلي المتأثر  " required>--}}
+                                    {{--</div>--}}
 
 
 

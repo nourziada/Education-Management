@@ -7,7 +7,7 @@
     <meta name="description" content="Webster - Responsive Multi-purpose HTML5 Template"/>
     <meta name="author" content="potenzaglobalsolutions.com"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-    <title>ادارة التخطيط والتطوير</title>
+    <title>تخـطـيـطـا.تـك</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('web/images/icon.png') }}"/>
@@ -69,7 +69,7 @@
                                 <!-- menu logo -->
                                 <ul class="menu-logo">
                                     <li>
-                                        <a href="#"><img id="logo_img" src="{{ asset('web/images/logo2.png') }}" alt="logo">
+                                        <a href="#"><img id="logo_img" src="{{ asset('web/images/logo22.png') }}" alt="logo">
                                         </a>
                                     </li>
                                 </ul>
@@ -78,7 +78,7 @@
                                     <ul class="menu-links">
                                         <li><a href="#">الرئيسية </a>
                                         </li>
-                                        <li><a href="#about" >من نحن </a>
+                                        <li><a href="#about" >عن البوابة </a>
                                         </li>
                                         <li><a href="#plan">نماذج الخطة </a>
                                         </li>
@@ -93,7 +93,7 @@
                                                 <li><a class="button button-border x-small" href="{{ route('dashboard.index') }}">لوحة التحكم</a> </li>
                                             @endif
                                         @else
-                                            <li><a class="button button-border x-small" href="{{ route('login') }}">تسجيل الاشتراك</a> </li>
+                                            <li><a class="button button-border x-small" href="{{ route('login') }}">تسجيل مستخدم</a> </li>
                                             <li><a class="button button-border x-small" href="{{ route('login') }}">تسجيل الدخول </a> </li>
                                         @endauth
 
@@ -121,8 +121,8 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <div class="slider-content text-center">
-                            <span class="text-white">الأدارة العامة للتعليم بمحافظة الريحان</span>
-                            <h1 class="theme-color text-uppercase">ادارة التخطيط والتطوير</h1>
+                            <span class="text-white">إدارة التعليم بمحافظة الـنـمـاص</span>
+                            <h1 class="theme-color text-uppercase">إدارة التخطيط والتطوير</h1>
                         </div>
                     </div>
                 </div>
@@ -146,7 +146,7 @@
                             <div class="col-md-4 col-sm-4 border-right  d-flex ">
                                 <div class="feature-text p-4 align-self-center ">
                                     <div class="feature-info">
-                                        <img class="img-fluid" src="{{ asset('web/images/log2.png') }}" alt="">
+                                        <img class="img-fluid" src="{{ asset('web/images/log22.png') }}" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -210,32 +210,14 @@
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade active show" id="home-08" role="tabpanel"
                                  aria-labelledby="home-08-tab">
-                                <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد
-                                    النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى
-                                    زيادة عدد الحروف التى يولدها التطبيق.
-                                    إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما
-                                    تريد، النص لن يبدو مقسما ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع
-                                    على وجه الخصوص، حيث يحتاج العميل فى كثير من الأحيان أن يطلع على صورة حقيقية لتصميم
-                                    الموقع.</p>
+                                <p>الـــتـــمـــيـــز الـــمـــؤســـســـي الـــشـــامـــل لـــبـــنـــاء مـــتـــعـــلـــم مـــبـــدع</p>
                             </div>
                             <div class="tab-pane fade" id="profile-08" role="tabpanel" aria-labelledby="profile-08-tab">
-                                <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد
-                                    النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى
-                                    زيادة عدد الحروف التى يولدها التطبيق.
-                                    إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما
-                                    تريد، النص لن يبدو مقسما ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع
-                                    على وجه الخصوص، حيث يحتاج العميل فى كثير من الأحيان أن يطلع على صورة حقيقية لتصميم
-                                    الموقع.</p>
+                                <p>تـــقـــديـــم تـــعـــلـــيـــم نـــوعـــي لإعـــداد مـــتـــعـــلـــم مـــتـــمـــيـــز ذي قـــيـــم أصـــيـــلـــة بـــكـــوادر بـــشـــريـــة مـــؤهـــلـــة فـــي بـــيـــئـــة تـــعـــلـــيـــمـــيـــة جـــاذبـــة وشـــراكـــة مـــجـــتـــمـــعـــيـــة فـــاعـــلـــة</p>
                             </div>
                             <div class="tab-pane fade" id="portfolio-08" role="tabpanel"
                                  aria-labelledby="portfolio-08-tab">
-                                <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد
-                                    النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى
-                                    زيادة عدد الحروف التى يولدها التطبيق.
-                                    إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما
-                                    تريد، النص لن يبدو مقسما ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع
-                                    على وجه الخصوص، حيث يحتاج العميل فى كثير من الأحيان أن يطلع على صورة حقيقية لتصميم
-                                    الموقع.</p>
+                                <p>الـــمـــهـــنـــيـــة، الـــمـــســـؤولـــيـــة الـــمـــجـــتـــمـــعـــيـــة، الـــمـــواطـــنـــة، الإتـــقـــان، الـــمـــبـــادرة</p>
                             </div>
                         </div>
                     </div>
@@ -389,12 +371,12 @@
             <div class="footer-widget">
                 <div class="row">
                     <div class="col-lg-3 footerr-logo">
-                        <img class="img-fluid" src="{{ asset('web/images/logo4.png') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('web/images/logo44.png') }}" alt="">
                     </div>
                     <div class="col-lg-6">
                         <div class="4 text-center">
                             <p class="mt-15">
-                                جميع الحقوق محفوظة  <a href="#">لإدارة التعليم </a>
+                                جميع الحقوق محفوظة  <a href="#">لتقنية المعلومات بالنماص</a>
                             </p>
                         </div>
                     </div>
@@ -413,10 +395,10 @@
                 <div class="row">
                     <div class="col-12 text-center">
                         <div class="social-icons social-border color-hover clearfix mt-lg-0 mt-3"><ul>
-                                <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li class="social-youtube"><a href="#"><i class="fa fa-youtube"></i></a></li>
-                                <li class="social-instagram"><a href="#"><i class="fa fa-instagram"></i></a></li>
+
+                                <li class="social-twitter"><a href="https://twitter.com/it_namasedu"><i class="fa fa-twitter"></i></a></li>
+                                <li class="social-youtube"><a href="#"><i class="fa fa-whatsapp"></i></a></li>
+
                             </ul></div>
                     </div>
                 </div>

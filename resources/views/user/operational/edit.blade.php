@@ -59,7 +59,7 @@
                                     <div class="form-group m-form__group @if($data->plane_type != 'مدرسة') d-none @endif" id="is_school">
                                         <label for="target">اسم المدرسة</label>
                                         <input type="text" class="form-control m-input m-input--square"
-                                              value="{{ $data->school_name }}" name="school_name" id="school_name"  placeholder="أدخل اسم المدرسة رجاءُ">
+                                              value="{{ $data->school_name }}" name="school_name" id="school_name"  placeholder="أدخل اسم المدرسة  ">
                                     </div>
 
                                     <div class="form-group m-form__group">
@@ -96,20 +96,6 @@
                                         </select>
                                     </div>
 
-
-                                    <div class="form-group m-form__group">
-                                        <label for="detailed_objectives">الأهداف التفصيلية</label>
-                                        <textarea class="form-control m-input m-input--square"
-                                                  name="detailed_objectives" placeholder="أدخل الأهداف التفصيلية رجاءً" required>{{ $data->detailed_objectives }}</textarea>
-                                    </div>
-
-                                    <div class="form-group m-form__group">
-                                        <label for="detailed_indicators">مؤشرات الأداء التفصيلية</label>
-                                        <textarea class="form-control m-input m-input--square" name="detailed_indicators"
-                                                  placeholder="أدخل مؤشرات الأداء التفصيلية رجاءً" required>{{ $data->detailed_indicators }}</textarea>
-                                    </div>
-
-
                                     <div class="form-group m-form__group">
                                         <label for="initiative_title">عنوان المبادرة الاستراتيجية للإدارة المرتبطة</label>
                                         <select class="form-control m-input" id="initiative_title" name="initiative_title" required>
@@ -126,33 +112,49 @@
 
 
                                     <div class="form-group m-form__group">
+                                        <label for="detailed_objectives">الأهداف التفصيلية</label>
+                                        <textarea class="form-control m-input m-input--square"
+                                                  name="detailed_objectives" placeholder="أدخل الأهداف التفصيلية" required>{{ $data->detailed_objectives }}</textarea>
+                                    </div>
+
+                                    <div class="form-group m-form__group">
+                                        <label for="detailed_indicators">مؤشرات الأداء التفصيلية</label>
+                                        <textarea class="form-control m-input m-input--square" name="detailed_indicators"
+                                                  placeholder="أدخل مؤشرات الأداء التفصيلية" required>{{ $data->detailed_indicators }}</textarea>
+                                    </div>
+
+
+
+
+
+                                    <div class="form-group m-form__group">
                                         <label for="plane_title">اسم البرنامج</label>
                                         <input type="text" class="form-control m-input m-input--square"
-                                              value="{{ $data->plane_title }}" name="plane_title" id="plane_title"  placeholder="أدخل اسم البرنامج رجاءُ" required>
+                                              value="{{ $data->plane_title }}" name="plane_title" id="plane_title"  placeholder="أدخل اسم البرنامج  " required>
                                     </div>
 
                                     <div class="form-group m-form__group">
                                         <label for="requirements">المتطلبات</label>
                                         <textarea class="form-control m-input m-input--square"
-                                                  name="requirements" placeholder="أدخل المتطلبات رجاءً" required>{{ $data->requirements }}</textarea>
+                                                  name="requirements" placeholder="أدخل المتطلبات  " required>{{ $data->requirements }}</textarea>
                                     </div>
 
                                     <div class="form-group m-form__group">
                                         <label for="targeted">المستهدفون</label>
                                         <textarea class="form-control m-input m-input--square" name="targeted"
-                                                  placeholder="أدخل المستهدفون رجاءً" required>{{ $data->targeted }}</textarea>
+                                                  placeholder="أدخل المستهدفون  " required>{{ $data->targeted }}</textarea>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-lg-6" >
                                             <div class="form-group m-form__group">
-                                                <label for="ad_execution_time_from">زمن التنفيذ (من) ميلادي</label>
+                                                <label for="ad_execution_time_from">زمن التنفيذ : من</label>
                                                 <input type="date" value="{{ $data->ad_execution_time_from}}" class="form-control m-input m-input--square" name="ad_execution_time_from" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group m-form__group">
-                                                <label for="ad_execution_time_to"> زمن التنفيذ (الى) ميلادي</label>
+                                                <label for="ad_execution_time_to"> الى</label>
                                                 <input type="date" class="form-control m-input m-input--square"
                                                        value="{{ $data->ad_execution_time_to}}" name="ad_execution_time_to" id="ad_execution_time_to" required>
                                             </div>
@@ -181,7 +183,7 @@
                                     <div class="form-group m-form__group">
                                         <label for="place">مكان التنفيذ</label>
                                         <input type="text" class="form-control m-input m-input--square"
-                                               value="{{ $data->place }}" name="place" id="place"  placeholder="أدخل مكان التنفيذ رجاءُ" required>
+                                               value="{{ $data->place }}" name="place" id="place"  placeholder="أدخل مكان التنفيذ  " required>
                                     </div>
 
 
@@ -191,51 +193,59 @@
 
 
                                             {{-- Code Here --}}
+                                            @php $managements = \App\Management::get(); @endphp
+                                            @forelse($managements as $manag)
+                                                <option value="{{ $manag->name }}" @if($data->main_implementing == $manag->name) selected @endif>{{ $manag->name }}</option>
+                                            @empty
+                                            @endforelse
 
-                                            <option @if($data->main_implementing == 'الإدارات المرتبطة') selected @endif value="الإدارات المرتبطة">الإدارات المرتبطة</option>
-                                            <option @if($data->main_implementing == 'الموارد البشرية') selected @endif value="الموارد البشرية">الموارد البشرية</option>
-                                            <option @if($data->main_implementing == 'الشؤون المالية والادارية') selected @endif value="الشؤون المالية والادارية">الشؤون المالية والادارية</option>
-                                            <option @if($data->main_implementing == 'شؤون المباني') selected @endif value="شؤون المباني">شؤون المباني</option>
-                                            <option @if($data->main_implementing == 'الشؤون المدرسية') selected @endif value="الشؤون المدرسية">الشؤون المدرسية</option>
-                                            <option @if($data->main_implementing == 'الشؤون التعليمية - بنين') selected @endif value="الشؤون التعليمية - بنين">الشؤون التعليمية - بنين</option>
-                                            <option @if($data->main_implementing == 'الشؤون التعليمية - بنات') selected @endif value="الشؤون التعليمية - بنات">الشؤون التعليمية - بنات</option>
 
                                         </select>
                                     </div>
 
                                     <div class="form-group m-form__group">
                                         <label for="sub_implementing">جهات التنفيذ المساندة</label>
-                                        <textarea class="form-control m-input m-input--square"
-                                                  name="sub_implementing" placeholder="أدخل جهات التنفيذ المساندة رجاءً" required>{{ $data->sub_implementing }}</textarea>
+                                        <select class="form-control m-input" id="sub_implementing" name="sub_implementing" required>
+
+
+                                            {{-- Code Here --}}
+                                            @php $managements = \App\Management::get(); @endphp
+                                            @forelse($managements as $manag)
+                                                <option value="{{ $manag->name }}" @if($data->sub_implementing == $manag->name) selected @endif>{{ $manag->name }}</option>
+                                            @empty
+                                            @endforelse
+
+
+                                        </select>
                                     </div>
 
 
                                     <div class="form-group m-form__group">
                                         <label for="cost">التكلفة</label>
                                         <input type="text" class="form-control m-input m-input--square"
-                                               value="{{ $data->cost }}" name="cost" id="cost"  placeholder="أدخل التكلفة رجاءُ" required>
+                                               value="{{ $data->cost }}" name="cost" id="cost"  placeholder="أدخل التكلفة  " required>
                                     </div>
 
 
-                                    <div class="form-group m-form__group">
-                                        <label for="ministerial_number">رقم المبادرة الوزارية المتأثرة</label>
-                                        <input type="text" class="form-control m-input m-input--square"
-                                               value="{{ $data->ministerial_number }}" name="ministerial_number" id="ministerial_number"  placeholder="أدخل رقم المبادرة الوزارية المتأثرة رجاءُ" required>
-                                    </div>
+                                    {{--<div class="form-group m-form__group">--}}
+                                        {{--<label for="ministerial_number">رقم المبادرة الوزارية المتأثرة</label>--}}
+                                        {{--<input type="text" class="form-control m-input m-input--square"--}}
+                                               {{--value="{{ $data->ministerial_number }}" name="ministerial_number" id="ministerial_number"  placeholder="أدخل رقم المبادرة الوزارية المتأثرة  " required>--}}
+                                    {{--</div>--}}
 
 
-                                    <div class="form-group m-form__group">
-                                        <label for="strategic_number">رقم المؤشر الاستراتيجي المتأثر </label>
-                                        <input type="text" class="form-control m-input m-input--square"
-                                               value="{{ $data->strategic_number }}" name="strategic_number" id="strategic_number"  placeholder="أدخل رقم المؤشر الاستراتيجي المتأثر  رجاءُ" required>
-                                    </div>
+                                    {{--<div class="form-group m-form__group">--}}
+                                        {{--<label for="strategic_number">رقم المؤشر الاستراتيجي المتأثر </label>--}}
+                                        {{--<input type="text" class="form-control m-input m-input--square"--}}
+                                               {{--value="{{ $data->strategic_number }}" name="strategic_number" id="strategic_number"  placeholder="أدخل رقم المؤشر الاستراتيجي المتأثر   " required>--}}
+                                    {{--</div>--}}
 
 
-                                    <div class="form-group m-form__group">
-                                        <label for="detailed_number">رقم المؤشر التفصيلي المتأثر</label>
-                                        <input type="text" class="form-control m-input m-input--square"
-                                               value="{{ $data->detailed_number }}" name="detailed_number" id="detailed_number"  placeholder="أدخل رقم المؤشر التفصيلي المتأثر رجاءُ" required>
-                                    </div>
+                                    {{--<div class="form-group m-form__group">--}}
+                                        {{--<label for="detailed_number">رقم المؤشر التفصيلي المتأثر</label>--}}
+                                        {{--<input type="text" class="form-control m-input m-input--square"--}}
+                                               {{--value="{{ $data->detailed_number }}" name="detailed_number" id="detailed_number"  placeholder="أدخل رقم المؤشر التفصيلي المتأثر  " required>--}}
+                                    {{--</div>--}}
 
 
 

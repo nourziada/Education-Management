@@ -277,6 +277,10 @@ class HomeController extends Controller
         $document->setValue('initiatives', ($initiatives) );
         $document->setValue('measurement', ($measurement) );
         $document->setValue('target', ($data->target) );
+        $document->setValue('department_initiatives', ($data->department_initiatives) );
+        $document->setValue('performance_index', ($data->performance_index) );
+        $document->setValue('executing_agency', ($data->executing_agency) );
+        $document->setValue('supporting_body', ($data->supporting_body) );
         $document->setValue('responsible_management', ($management) );
 
 
@@ -379,9 +383,9 @@ class HomeController extends Controller
         $document->setValue('main_implementing', ($data->main_implementing) );
         $document->setValue('sub_implementing', ($data->sub_implementing) );
         $document->setValue('cost', ($data->cost) );
-        $document->setValue('ministerial_number', ($data->ministerial_number) );
-        $document->setValue('strategic_number', ($data->strategic_number) );
-        $document->setValue('detailed_number', ($data->detailed_number) );
+//        $document->setValue('ministerial_number', ($data->ministerial_number) );
+//        $document->setValue('strategic_number', ($data->strategic_number) );
+//        $document->setValue('detailed_number', ($data->detailed_number) );
 
         $name = 'Document' . time() . '.docx';
         $document->saveAs(public_path() . "/operational_reports/" . $name);
