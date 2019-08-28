@@ -46,10 +46,10 @@
                                 </div>
                             </div>
                             <div class="m-portlet__body">
-                                @php $user = \App\User::find(Auth::user()->id); @endphp
-                                @php $roles = \App\AdminRole::where('user_id',$user->id)->get(); @endphp
+                                @php $adminUser = \App\User::find(Auth::user()->id); @endphp
+                                @php $roles = \App\AdminRole::where('user_id',$adminUser->id)->get(); @endphp
 
-                                @if($roles->contains('role_id', 1) || $user->email == 'admin@admin.com')
+                                @if($roles->contains('role_id', 1) || $adminUser->email == 'admin@admin.com')
                                 <form class="m-form m-form--fit m--margin-bottom-20" action="{{ route('admin.strategic.plans.filter') }}" method="post">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="type" value="{{$type}}">
@@ -227,7 +227,9 @@
                                                     <div class="dropdown-menu dropdown-menu-right">
 
                                                         @php $roles = \App\AdminRole::where('user_id',Auth::user()->id)->get(); @endphp
-                                                        @if($roles->contains('role_id', 3) || $user->email == 'admin@admin.com')
+
+                                                        @if($roles->contains('role_id', 3) || $adminUser->email == 'admin@admin.com')
+
                                                             @if($project->is_confirmed == 0)
                                                                 <a class="dropdown-item" href="{{ route('admin.strategic.plans.accept',$project->id) }}">
                                                                     <i class="la la-check-circle"></i>الموافقة

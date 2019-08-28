@@ -28,7 +28,12 @@ class HomeController extends Controller
 
     public function updateProfileData(Request $request)
     {
+
         $user = Auth::user();
+
+        $this->validate($request,[
+            'email' => 'required|string|email|max:255|unique:users,email,'.$user->id,
+        ]);
         $user->name = $request->name;
         $user->email = $request->email;
         $user->mobile = $request->mobile;
